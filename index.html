@@ -335,7 +335,7 @@
 <section data-room="14" data-screen-label="15 Skills" style="flex:0 0 100vw;width:100vw;height:100%;position:relative;overflow:hidden;scroll-snap-align:start;display:flex;align-items:center;box-sizing:border-box;padding:clamp(76px,11vh,104px) clamp(24px,6vw,104px) clamp(56px,9vh,96px) clamp(72px,7.5vw,120px);background:#F5F8FA">
 <div data-fit="" style="position:relative;z-index:1;transform-origin:center center;width:100%;max-width:1320px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);gap:clamp(32px,6vw,96px);align-items:center">
 <div>
-<div data-reveal="" style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700);display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;border-radius:50%;background:var(--blush-400);box-shadow:0 0 0 4px rgba(245,176,195,.3)"></span>Room 15 · Skillset</div>
+<div data-reveal="" style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700);display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;border-radius:50%;background:var(--blush-400);box-shadow:0 0 0 4px rgba(245,176,195,.3)"></span>Room 15 · Toolkits</div>
 <h2 data-reveal="" style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,min(4.4vw,7.4vh),64px);line-height:1.04;letter-spacing:-0.035em;color:var(--text-strong);margin:16px 0 0">What I Bring to the Room.</h2>
 <p data-reveal="" style="font-family:var(--font-body);font-size:clamp(16px,1.25vw,19px);line-height:1.6;color:var(--text-body);margin:18px 0 0;max-width:420px">Project management rigor, UX sensibility and strategic judgment — the three seats a product needs filled.</p>
 <div data-reveal="" style="margin-top:26px"><div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-subtle)">Certifications</div><div data-mcol="repeat(3,minmax(0,1fr))" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:10px"><span style="display:flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 12px;border-radius:999px;background:rgb(238,245,252);color:var(--ocean-700);font-family:var(--font-mono);font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap"><span style="width:8px;height:8px;border-radius:50%;background:var(--ocean-600);flex:none"></span>PMP</span><span style="display:flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 12px;border-radius:999px;background:rgb(238,245,252);color:var(--ocean-700);font-family:var(--font-mono);font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap">CSM</span><span style="display:flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 12px;border-radius:999px;background:rgb(238,245,252);color:var(--ocean-700);font-family:var(--font-mono);font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap">CSPO</span><span style="display:flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 12px;border-radius:999px;background:rgb(238,245,252);color:var(--ocean-700);font-family:var(--font-mono);font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap">CPM</span><span style="display:flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 12px;border-radius:999px;background:rgb(238,245,252);color:var(--ocean-700);font-family:var(--font-mono);font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap">SAFe 6.0</span></div><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--text-muted);margin-top:14px">Baccalaureate · Purdue University · 2005</div></div>
@@ -603,8 +603,8 @@
 <div style="pointer-events:auto;display:flex;align-items:center;gap:18px">
 <sc-if value="{{ hasFocus }}" hint-placeholder-val="{{ false }}"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Tag" icon="sliders-horizontal" on-remove="{{ clearFocus }}" hint-size="180px,34px">{{ focusLabel }}</x-import></sc-if>
 
-<sc-if value="{{ notCompact }}" hint-placeholder-val="{{ true }}"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="primary" size="sm" icon-right="arrow-right" on-click="{{ openContact }}" hint-size="120px,36px">Let's talk</x-import></sc-if>
-<sc-if value="{{ isCompact }}" hint-placeholder-val="{{ false }}"><button aria-label="{{ menuLabel }}" aria-expanded="{{ menuExp }}" onClick="{{ menuToggle }}" style="width:44px;height:44px;border:0;border-radius:999px;background:var(--ocean-700);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-active="opacity:.85"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="{{ menuIcon }}" size="{{ 20 }}" hint-size="20px,20px"></x-import></button></sc-if>
+<sc-if value="{{ notCompact }}" hint-placeholder-val="{{ true }}"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="primary" size="sm" icon-right="arrow-right" on-click="{{ openContact }}" hint-size="120px,36px">Let's Connect</x-import></sc-if>
+<sc-if value="{{ isCompact }}" hint-placeholder-val="{{ false }}"><button aria-label="{{ menuLabel }}" aria-expanded="{{ menuExp }}" onClick="{{ menuToggle }}" style="width:44px;height:44px;border:0;border-radius:999px;background:var(--ocean-700);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-active="opacity:.85"><span aria-hidden="true" style="position:relative;display:block;width:20px;height:20px"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:-3px;top:-3px;opacity:{{ hbFries.o }};transform:{{ hbFries.t }};transition:opacity 260ms var(--ease-flow),transform 360ms var(--ease-flow)"><rect x="4.6" y="5.2" width="2.6" height="8" rx="1.3" style="fill:var(--ocean-700)"></rect><rect x="7.4" y="3" width="2.6" height="10" rx="1.3" style="fill:var(--ocean-700)"></rect><rect x="10.7" y="1.6" width="2.6" height="11" rx="1.3" style="fill:var(--ocean-700)"></rect><rect x="14" y="3" width="2.6" height="10" rx="1.3" style="fill:var(--ocean-700)"></rect><rect x="16.8" y="5.2" width="2.6" height="8" rx="1.3" style="fill:var(--ocean-700)"></rect><path d="M3.6 9.6 Q12 12.6 20.4 9.6 L18.7 21.6 Q12 20.6 5.3 21.6 Z" style="fill:var(--ocean-700)"></path><path d="M9.8 13.9 L14.2 18.3 M14.2 13.9 L9.8 18.3"></path></svg><span style="position:absolute;left:0;top:50%;width:20px;margin-top:-2px;height:4px;border-radius:999px;background:#FFFFFF;transform:{{ hbTop.t }};height:{{ hbTop.h }};margin-top:{{ hbTop.m }};opacity:{{ hbTop.o }};transition:transform 320ms var(--ease-flow),height 320ms var(--ease-flow),margin-top 320ms var(--ease-flow),opacity 200ms var(--ease-flow)"></span><span style="position:absolute;left:0;top:50%;width:20px;margin-top:-2px;height:4px;border-radius:999px;background:#FFFFFF;transform:{{ hbMid.t }};height:{{ hbMid.h }};margin-top:{{ hbMid.m }};opacity:{{ hbMid.o }};transition:transform 320ms var(--ease-flow),height 320ms var(--ease-flow),margin-top 320ms var(--ease-flow),opacity 200ms var(--ease-flow)"></span><span style="position:absolute;left:0;top:50%;width:20px;margin-top:-2px;height:4px;border-radius:999px;background:#FFFFFF;transform:{{ hbBot.t }};height:{{ hbBot.h }};margin-top:{{ hbBot.m }};opacity:{{ hbBot.o }};transition:transform 320ms var(--ease-flow),height 320ms var(--ease-flow),margin-top 320ms var(--ease-flow),opacity 200ms var(--ease-flow)"></span></span></button></sc-if>
 </div>
 </div>
 
@@ -613,28 +613,32 @@
 <sc-for list="{{ menuGroups }}" as="g" hint-placeholder-count="5"><div style="border-bottom:1px solid var(--border-subtle)">
 <button aria-expanded="{{ g.exp }}" onClick="{{ g.toggle }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:60px;padding:0 4px;border:0;background:transparent;cursor:pointer;text-align:left;font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--ocean-950)"><span>{{ g.label }}</span><span style="display:flex;transform:{{ g.rot }};transition:transform 260ms var(--ease-flow);color:var(--text-subtle)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="chevron-down" size="{{ 20 }}" hint-size="20px,20px"></x-import></span></button>
 <sc-if value="{{ g.open }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:0;padding:0 0 12px">
-<sc-for list="{{ g.items }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.go }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:0 4px 0 8px;border:0;background:transparent;cursor:pointer;border-radius:10px;text-align:left;font-family:var(--font-ui);font-size:16px;font-weight:{{ t.weight }};color:{{ t.color }}" style-active="background-color:var(--lagoon-50)"><span style="display:flex;align-items:center;gap:12px"><span style="font-family:var(--font-mono);font-size:11px;color:var(--text-subtle);width:20px">{{ t.no }}</span>{{ t.n }}</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--text-subtle)">{{ t.meta }}</span></button></sc-for>
+<sc-for list="{{ g.items }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.go }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:0 4px 0 8px;border:0;background:transparent;cursor:pointer;border-radius:10px;text-align:left;font-family:var(--font-ui);font-size:16px;font-weight:{{ t.weight }};color:{{ t.color }}" style-active="background-color:var(--lagoon-50)"><span style="display:flex;align-items:center;gap:12px">{{ t.n }}</span><span style="font-family:var(--font-mono);font-size:11px;color:var(--text-subtle)">{{ t.meta }}</span></button></sc-for>
 </div></sc-if>
 </div></sc-for>
+<div style="margin-top:40px;display:flex;flex-direction:column;flex-shrink:0"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="primary" size="lg" icon-right="arrow-right" on-click="{{ menuContact }}" style="width:100%" hint-size="100%,52px">Let's Connect</x-import></div>
 </div>
-<div style="max-width:640px;width:100%;margin:16px auto 0;display:flex;flex-direction:column"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="primary" size="lg" icon-right="arrow-right" on-click="{{ menuContact }}" style="width:100%" hint-size="100%,52px">Let's talk</x-import></div>
 </nav></sc-if>
 
 <sc-if value="{{ notCompact }}" hint-placeholder-val="{{ true }}"><nav aria-label="Gallery rooms and industry focus" onMouseEnter="{{ railIn }}" onMouseLeave="{{ railOut }}" onFocus="{{ railIn }}" style="position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:30;padding:24px 24px 24px clamp(18px,2.2vw,36px)">
 <sc-if value="{{ editMode }}" hint-placeholder-val="{{ false }}"><button aria-label="Toggle rooms menu" onClick="{{ railToggle }}" style="position:absolute;left:clamp(10px,1.4vw,26px);top:-24px;z-index:2;display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border:0;border-radius:999px;background:var(--ocean-700);color:#FFFFFF;font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:var(--shadow-md);white-space:nowrap" style-hover="background:var(--ocean-800)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="menu" size="{{ 14 }}" hint-size="14px,14px"></x-import>{{ railBtnLabel }}</button></sc-if>
 <div data-railcollapsed="" style="display:flex;flex-direction:column;align-items:flex-start;gap:0;transition:opacity 260ms var(--ease-flow)">
 <sc-for list="{{ ticks }}" as="t" hint-placeholder-count="17"><button data-tick="{{ t.k }}" aria-label="{{ t.n }}" onClick="{{ t.go }}" style="display:block;width:16px;height:14px;padding:6px 0;border:0;cursor:pointer;background:var(--ink-300);background-clip:content-box;border-radius:999px;transition:width 360ms var(--ease-flow),background-color 360ms var(--ease-flow)"></button></sc-for>
-<span style="display:flex;align-items:center;gap:6px;margin-top:14px;color:var(--text-subtle)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="sliders-horizontal" size="{{ 14 }}" hint-size="14px,14px"></x-import><span data-focusdot="" style="width:6px;height:6px;border-radius:50%;background:var(--ink-300);transition:background-color 360ms var(--ease-flow)"></span></span>
 </div>
-<div data-railpanel="" style="position:absolute;left:clamp(10px,1.4vw,26px);top:50%;transform:translate(-8px,-50%);opacity:0;pointer-events:none;width:252px;max-height:86vh;overflow-y:auto;scrollbar-width:none;background:rgba(255,255,255,.95);backdrop-filter:saturate(160%) blur(18px);-webkit-backdrop-filter:saturate(160%) blur(18px);border-radius:24px;box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(255,255,255,.7);padding:18px 14px;box-sizing:border-box;transition:opacity 260ms var(--ease-flow),transform 360ms var(--ease-flow)">
-<div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-subtle);padding:0 10px 8px">Rooms</div>
-<sc-for list="{{ ticks }}" as="t" hint-placeholder-count="17"><button data-roomlink="{{ t.k }}" onClick="{{ t.go }}" style="display:flex;align-items:center;gap:12px;width:100%;border:0;background:transparent;cursor:pointer;padding:6px 10px;border-radius:10px;text-align:left;font-family:var(--font-ui);font-size:13.5px;font-weight:500;color:var(--text-body);transition:background-color 200ms" style-hover="background-color:var(--lagoon-50)"><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--text-subtle);width:18px">{{ t.no }}</span>{{ t.n }}</button></sc-for>
-<div style="height:1px;background:var(--border-subtle);margin:12px 10px"></div>
-<div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blush-600);padding:0 10px 8px;display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:var(--blush-400)"></span>Focus by industry</div>
-<button data-indlink="all" onClick="{{ clearFocus }}" style="display:flex;width:100%;border:0;background:transparent;cursor:pointer;padding:6px 10px;border-radius:10px;text-align:left;font-family:var(--font-ui);font-size:13.5px;font-weight:500;color:var(--text-body);transition:background-color 200ms" style-hover="background-color:var(--blush-50)">All industries</button>
-<sc-for list="{{ inds }}" as="d" hint-placeholder-count="14"><button data-indlink="{{ d.id }}" onClick="{{ d.pick }}" style="display:flex;justify-content:space-between;width:100%;border:0;background:transparent;cursor:pointer;padding:6px 10px;border-radius:10px;text-align:left;font-family:var(--font-ui);font-size:13.5px;font-weight:500;color:var(--text-body);transition:background-color 200ms" style-hover="background-color:var(--blush-50)"><span>{{ d.label }}</span><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--text-subtle)">{{ d.count }}</span></button></sc-for>
+<div data-railpanel="" style="position:absolute;left:clamp(10px,1.4vw,26px);top:50%;transform:translate(-8px,-50%);opacity:0;pointer-events:none;width:228px;background:#FFFFFF;border-radius:24px;box-shadow:-20px 28px 48px -28px rgba(0,31,64,.32),inset 0 0 0 1px rgba(255,255,255,.7);padding:12px;box-sizing:border-box;transition:opacity 260ms var(--ease-flow),transform 360ms var(--ease-flow)">
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="4"><div onMouseEnter="{{ g.hover }}" onDragOver="{{ g.over }}" onDrop="{{ g.drop }}" style="position:relative">
+<button onClick="{{ g.go }}" aria-expanded="{{ g.exp }}" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; border: 0; cursor: pointer; padding: 12px 12px 12px 14px; border-radius:{{ g.radius }}; text-align: left; font-family: var(--font-display); font-size: 20px; font-weight: 500; letter-spacing: -0.02em; color: {{ g.color }}; background: {{ g.bg }}; transition: background-color 200ms var(--ease-flow),color 200ms var(--ease-flow)"><span style="font-size: 16px">{{ g.title }}</span><span style="display:flex;color:var(--text-subtle);transform:{{ g.nudge }};transition:transform 200ms var(--ease-flow)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="chevron-right" size="{{ 18 }}" hint-size="18px,18px"></x-import></span></button>
+<sc-if value="{{ g.open }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position:absolute;top:0;bottom:0;right:-12px;width:12px;background:var(--lagoon-50)"></span><div style="position:absolute;left:calc(100% + 12px);top:0;z-index:2">
+<div style="width:252px;background:var(--lagoon-50);border-radius:0 20px 20px 20px;box-shadow:24px 28px 48px -28px rgba(0,31,64,.32);padding:12px 10px;box-sizing:border-box;display:flex;flex-direction:column">
+<div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-subtle);padding:2px 10px 8px;display:flex;align-items:center;justify-content:space-between"><span>{{ g.title }}</span></div>
+<sc-for list="{{ g.items }}" as="t" hint-placeholder-count="4"><button data-roomlink="{{ t.k }}" draggable="{{ t.drag }}" onDragStart="{{ t.start }}" onDragOver="{{ t.over }}" onDragEnd="{{ t.end }}" onClick="{{ t.go }}" style="display:flex;align-items:center;gap:12px;width:100%;border:0;background:transparent;cursor:pointer;padding:6px 10px;border-radius:10px;text-align:left;font-family:var(--font-ui);font-size:13.5px;font-weight:500;color:var(--text-body);transition:background-color 200ms;box-shadow:{{ t.line }};opacity:{{ t.op }}" style-hover="background-color:#FFFFFF"><span style="flex: 1; min-width: 0; font-size: 16px">{{ t.n }}</span><sc-if value="{{ t.drag }}" hint-placeholder-val="{{ false }}"><span style="display:flex;color:var(--ink-300);cursor:grab"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="grip-vertical" size="{{ 14 }}" hint-size="14px,14px"></x-import></span></sc-if></button></sc-for>
+<sc-if value="{{ g.empty }}" hint-placeholder-val="{{ false }}"><div style="margin:2px 10px 4px;padding:10px;border-radius:10px;box-shadow:inset 0 0 0 1.5px var(--ink-200);font-family:var(--font-ui);font-size:12.5px;color:var(--text-subtle);text-align:center">Drag pages here</div></sc-if>
 </div>
-</nav></sc-if>
+</div></sc-if>
+</div></sc-for>
+</div>
+</div></nav></sc-if>
 
 <sc-if value="{{ showHint }}" hint-placeholder-val="{{ true }}"><div style="position:fixed;left:50%;bottom:clamp(18px,3.5vh,32px);transform:translateX(-50%);z-index:20;pointer-events:none;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-subtle);display:flex;align-items:center;gap:10px">Scroll or swipe to explore<span style="width:28px;height:1px;background:var(--ink-300)"></span></div></sc-if>
 
@@ -663,11 +667,11 @@
 <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;right:clamp(24px,6vw,104px);bottom:100px;z-index:1100"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Toast" tone="success" title="Almost there" message="Your email app should open with the note ready to send. I'll reply within two business days." on-close="{{ closeToast }}" hint-size="380px,72px"></x-import></div></sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;aboutLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Portrait split&quot;,&quot;Orbit&quot;],&quot;default&quot;:&quot;Portrait split&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;About room&quot;},&quot;wheelPaging&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;revealMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;arrangeNav&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Drag-to-group nav (hidden on github.io)&quot;}}">
 class Component extends DCLogic {
   form = {};
   state = { emailErr: "", i: 0, dialogOpen: false, skill: 0, reviewOpen: false, rEmailErr: "", toastOn: false, rail: false, focus: null, menu: false, menuSec: {}, vw: typeof window !== "undefined" ? window.innerWidth : 1440 };
-  rooms = ["Entrance", "About", "What drives me", "Career", "Range of work", "Project 01", "Project 02", "Project 03", "Project 04", "Project 05", "Project 06", "Project 07", "Industries", "Brands", "Skillset", "In their words", "What's next"];
+  rooms = ["Entrance", "About", "What drives me", "Career", "Range of work", "Project 01", "Project 02", "Project 03", "Project 04", "Project 05", "Project 06", "Project 07", "Industries", "Brands", "Toolkits", "In their words", "Let's Connect"];
   scRef = React.createRef();
   blendRef = React.createRef();
   devRef = React.createRef();
@@ -857,6 +861,49 @@ class Component extends DCLogic {
       const lbl = this.eyebrowOf(rooms[k + 1]) || this.rooms[k + 1];
       const s = c.querySelector("[data-nextlbl]"); if (s.textContent !== lbl) s.textContent = lbl;
     });
+  }
+  navTitles = ["Overview", "Experience", "Proficiencies", "References"];
+  navDefault = [[0, 1, 2, 3], [4, 5, 6, 7, 8, 9, 10, 11, 14], [12, 13], [15, 16]];
+  getNavGroups() {
+    if (this.state.navG) return this.state.navG;
+    let g = null; try { g = JSON.parse(localStorage.getItem("bhbp-nav-groups") || "null"); } catch (e) {}
+    const ok = Array.isArray(g) && g.length === 4 && g.flat().length === this.rooms.length && new Set(g.flat()).size === this.rooms.length;
+    return ok ? g : this.navDefault;
+  }
+  canArrange() { return (this.props.arrangeNav ?? false) && !/github\.io$/.test(location.hostname); }
+  navGroupVals() {
+    const groups = this.getNavGroups(), drag = this.state.navDrag, over = this.state.navOver, can = this.canArrange(), i = this.state.i;
+    const setOver = (o) => { const c = this.state.navOver; if (!c || c.g !== o.g || c.idx !== o.idx) this.setState({ navOver: o }); };
+    const drop = (e) => {
+      e.preventDefault(); e.stopPropagation();
+      const o = this.state.navOver, k = this.state.navDrag; if (k == null || !o) return this.setState({ navDrag: null, navOver: null });
+      const g = groups.map((a) => a.slice()); let idx = o.idx;
+      g.forEach((a, gi) => { const p = a.indexOf(k); if (p >= 0) { a.splice(p, 1); if (gi === o.g && p < idx) idx--; } });
+      g[o.g].splice(Math.max(0, Math.min(idx, g[o.g].length)), 0, k);
+      try { localStorage.setItem("bhbp-nav-groups", JSON.stringify(g)); } catch (err) {}
+      this.setState({ navG: g, navDrag: null, navOver: null });
+    };
+    return groups.map((ks, gi) => ({
+      title: this.navTitles[gi], count: String(ks.filter((k) => k !== 0).length).padStart(2, "0"), empty: !ks.some((k) => k !== 0),
+      open: this.state.navHover === gi, exp: this.state.navHover === gi ? "true" : "false",
+      nudge: this.state.navHover === gi ? "translateX(2px)" : "none",
+      radius: this.state.navHover === gi && drag == null ? "14px 0 0 14px" : "14px",
+      color: ks.includes(i) ? "var(--ocean-700)" : "var(--text-strong)",
+      bg: (drag != null && over && over.g === gi) || (drag == null && this.state.navHover === gi) ? "var(--lagoon-50)" : "transparent",
+      hover: () => { if (this.state.navDrag == null && this.state.navHover !== gi) this.setState({ navHover: gi }); },
+      go: () => { const f = ks.find((k) => k !== 0); if (f != null) this.go(f); },
+      over: (e) => { if (drag == null && this.state.navDrag == null) return; e.preventDefault(); if (e.target === e.currentTarget || !this.state.navOver || this.state.navOver.g !== gi) setOver({ g: gi, idx: ks.length }); },
+      drop,
+      items: ks.map((k, idx) => ({
+        k, n: this.rooms[k], no: String(k + 1).padStart(2, "0"), drag: can,
+        go: () => this.go(k),
+        op: drag === k ? 0.4 : 1,
+        line: drag != null && drag !== k && over && over.g === gi && over.idx === idx ? "inset 0 2px 0 var(--lagoon-500)" : (drag != null && over && over.g === gi && over.idx === ks.length && idx === ks.length - 1 && drag !== k ? "inset 0 -2px 0 var(--lagoon-500)" : "none"),
+        start: (e) => { clearTimeout(this.railT); try { e.dataTransfer.effectAllowed = "move"; e.dataTransfer.setData("text/plain", String(k)); } catch (err) {} this.setState({ navDrag: k }); },
+        over: (e) => { if (this.state.navDrag == null) return; e.preventDefault(); e.stopPropagation(); const r = e.currentTarget.getBoundingClientRect(); setOver({ g: gi, idx: e.clientY > r.top + r.height / 2 ? idx + 1 : idx }); },
+        end: () => this.setState({ navDrag: null, navOver: null }),
+      })).filter((t) => t.k !== 0),
+    }));
   }
   isEditing() { return typeof document !== "undefined" && !!document.querySelector("[data-cc-id],[contenteditable='true'],[contenteditable='plaintext-only']"); }
   ov(n, on, styles) {
@@ -1266,7 +1313,9 @@ class Component extends DCLogic {
     document.querySelectorAll("[data-tick]").forEach((b) => {
       const k = +b.getAttribute("data-tick");
       b.style.width = k === i ? "30px" : "16px";
-      b.style.backgroundColor = k === i ? "var(--ocean-700)" : k < i ? "var(--lagoon-300)" : "var(--ink-300)";
+      const n = this.rooms.length - 1, t = k / n;
+      const grad = t <= .5 ? `color-mix(in oklab, var(--lagoon-500) ${Math.round(t * 200)}%, var(--ocean-700))` : `color-mix(in oklab, var(--blush-400) ${Math.round((t - .5) * 200)}%, var(--lagoon-500))`;
+      b.style.backgroundColor = k === i ? (k === n ? "var(--blush-400)" : "var(--ocean-700)") : k < i ? grad : "var(--ink-300)";
     });
   }
   renderVals() {
@@ -1292,6 +1341,7 @@ class Component extends DCLogic {
       deskRef: this.deskRef,
       roomNo: String(i + 1).padStart(2, "0"),
       roomName: this.rooms[i],
+      navGroups: this.navGroupVals(),
       ticks: this.rooms.map((n, k) => ({ n, k, no: String(k + 1).padStart(2, "0"), go: () => this.go(k) })),
       inds: this.industries.map(([id, label, count]) => ({ id, label, count: String(count).padStart(2, "0"), pick: () => { this.setState({ focus: id, rail: false, menu: false }); this.go(12); } })),
       isCompact: this.isCompact(), notCompact: !this.isCompact(),
@@ -1299,19 +1349,22 @@ class Component extends DCLogic {
       menuExp: this.state.menu ? "true" : "false",
       menuIcon: this.state.menu ? "x" : "menu",
       menuLabel: this.state.menu ? "Close menu" : "Open menu",
+      hbFries: this.state.menu ? { o: 1, t: "none" } : { o: 0, t: "translateY(4px) scale(.8)" },
+      hbTop: this.state.menu ? { t: "translateY(-6px) scale(.6)", h: "4px", m: "-2px", o: 0 } : { t: "translateY(-6px)", h: "4px", m: "-2px", o: 1 },
+      hbMid: this.state.menu ? { t: "scaleX(.2)", h: "2px", m: "-1px", o: 0 } : { t: "none", h: "2px", m: "-1px", o: 1 },
+      hbBot: this.state.menu ? { t: "translateY(6px) scale(.6)", h: "4px", m: "-2px", o: 0 } : { t: "translateY(6px)", h: "4px", m: "-2px", o: 1 },
       menuToggle: () => this.setState({ menu: !this.state.menu, menuSec: {} }),
       menuContact: () => this.setState({ menu: false, dialogOpen: true }),
       menuGroups: (() => {
         const room = (k) => ({ n: this.rooms[k], no: String(k + 1).padStart(2, "0"), meta: "", color: k === i ? "var(--ocean-700)" : "var(--text-body)", weight: k === i ? 700 : 500, go: () => { this.setState({ menu: false }); this.go(k); } });
-        const groups = [["about", "About", [0, 1, 2, 3].map(room)], ["projects", "Projects", [4, 5, 6, 7, 8, 9, 10, 11].map(room)], ["skills", "Skills", [12, 13, 14].map(room)], ["connect", "Connect", [15, 16].map(room)],
-          ["focus", "Focus by industry", [{ n: "All industries", no: "", meta: "", color: !this.state.focus ? "var(--blush-700)" : "var(--text-body)", weight: !this.state.focus ? 700 : 500, go: () => this.setState({ focus: null, menu: false }) }].concat(this.industries.map(([id, label, count]) => ({ n: label, no: "", meta: String(count).padStart(2, "0"), color: this.state.focus === id ? "var(--blush-700)" : "var(--text-body)", weight: this.state.focus === id ? 700 : 500, go: () => { this.setState({ focus: id, menu: false }); this.go(12); } })))]];
-        return groups.map(([key, label, items]) => { const open = !!this.state.menuSec[key]; return { label, items, open, exp: open ? "true" : "false", rot: open ? "rotate(180deg)" : "none", toggle: () => this.setState({ menuSec: { ...this.state.menuSec, [key]: !open } }) }; });
+        const groups = [["about", "Overview", [1, 2, 3].map(room)], ["projects", "Experience", [4, 5, 6, 7, 8, 9, 10, 11].map(room)], ["skills", "Proficiencies", [12, 13, 14].map(room)], ["connect", "References", [15, 16].map(room)]];
+        return groups.map(([key, label, items]) => { const open = !!this.state.menuSec[key]; return { label, items, open, exp: open ? "true" : "false", rot: open ? "rotate(180deg)" : "none", toggle: () => this.setState({ menuSec: open ? {} : { [key]: true } }) }; });
       })(),
       hasFocus: !!this.state.focus,
       focusLabel: this.state.focus ? (this.industries.find((d) => d[0] === this.state.focus) || [])[1] : "",
       clearFocus: () => this.setState({ focus: null }),
       railIn: () => { if (this.isEditing()) return; clearTimeout(this.railT); if (!this.state.rail) this.setState({ rail: true }); },
-      railOut: () => { if (this.isEditing()) return; clearTimeout(this.railT); this.railT = setTimeout(() => this.setState({ rail: false }), 180); },
+      railOut: () => { if (this.isEditing() || this.state.navDrag != null) return; clearTimeout(this.railT); this.railT = setTimeout(() => this.setState({ rail: false, navHover: null }), 180); },
       railToggle: (e) => { if (e) e.stopPropagation(); clearTimeout(this.railT); this.setState({ rail: !this.state.rail }); },
       editMode: this.isEditing(),
       railBtnLabel: this.state.rail ? "Close" : "Rooms",

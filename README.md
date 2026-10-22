@@ -17,9 +17,13 @@ Static site for GitHub Pages. No build step.
 - /project-07/ — Project 07 (also /#project-07)
 - /industries/ — Industries (also /#industries)
 - /brands/ — Brands (also /#brands)
-- /skillset/ — Skillset (also /#skillset)
+- /toolkits/ — Toolkits (also /#toolkits; /skillset/ redirects here)
 - /in-their-words/ — In their words (also /#in-their-words)
-- /whats-next/ — What's next (also /#whats-next)
+- /lets-connect/ — Let's Connect (also /#lets-connect; /whats-next/ redirects here)
+
+## Navigation
+- Desktop: hover the left rail to open four sections (Overview, Experience, Proficiencies, References); hover a section for its pages.
+- Mobile/tablet: hamburger menu with the same groups (Skills shown as Proficiencies); one accordion open at a time.
 
 ## Deploy
 1. Create a repo (e.g. `billhayes.github.io` or `portfolio`).
