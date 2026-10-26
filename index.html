@@ -830,6 +830,20 @@ class Component extends DCLogic {
       setTimeout(() => { this.lock = false; }, 800);
     };
     el.addEventListener("wheel", this.onWheel, { passive: false });
+    // Mobile: take horizontal swipes in JS (touch-action pan-y) so each swipe ends in a real pointerup —
+    // a user activation — and the history entry it pushes isn't skipped by Back.
+    el.style.touchAction = "pan-y";
+    this.onPDown = (e) => { if (e.pointerType !== "touch") return; this.sw = { x: e.clientX, y: e.clientY, t: Date.now() }; };
+    this.onPUp = (e) => {
+      const s = this.sw; this.sw = null; if (!s || e.pointerType !== "touch") return;
+      const dx = e.clientX - s.x, dy = e.clientY - s.y;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.2 || Date.now() - s.t > 900) return;
+      this.go(this.state.i + (dx < 0 ? 1 : -1));
+    };
+    this.onPCancel = () => { this.sw = null; };
+    el.addEventListener("pointerdown", this.onPDown, { passive: true });
+    el.addEventListener("pointerup", this.onPUp, { passive: true });
+    el.addEventListener("pointercancel", this.onPCancel, { passive: true });
     this.onScroll = () => { const i = Math.round(el.scrollLeft / el.clientWidth); if (i !== this.state.i) this.setRoom(i); };
     el.addEventListener("scroll", this.onScroll, { passive: true });
     this.onKey = (e) => {
@@ -929,7 +943,7 @@ class Component extends DCLogic {
     cancelAnimationFrame(this.flowRaf);
     if (this.gObs) this.gObs.disconnect();
     const el = this.scRef.current;
-    if (el) { el.removeEventListener("wheel", this.onWheel); el.removeEventListener("scroll", this.onScroll); }
+    if (el) { el.removeEventListener("wheel", this.onWheel); el.removeEventListener("scroll", this.onScroll); el.removeEventListener("pointerdown", this.onPDown); el.removeEventListener("pointerup", this.onPUp); el.removeEventListener("pointercancel", this.onPCancel); }
     window.removeEventListener("keydown", this.onKey); window.removeEventListener("resize", this.onResize);
   }
   componentDidUpdate() { this.applyTertiary(); this.armBrands(); this.paintBack(); this.paintCtas(); this.layout(); this.paintTicks(this.state.i); this.paintRail(); this.paintFocus(); this.gradientize(); }
