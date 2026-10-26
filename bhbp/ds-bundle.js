@@ -82,6 +82,9 @@ function Button({
   const [hover, setHover] = React.useState(false);
   const [press, setPress] = React.useState(false);
   const s = SIZES[size] || SIZES.md;
+  const on = hover && !disabled;
+  const isAccent = variant === "accent", isOutline = variant === "secondary" || variant === "ghost";
+  const stretch = isAccent && iconRight === "arrow-right";
   const V = {
     primary: {
       background: press ? "var(--action-primary-bg-press)" : hover ? "var(--action-primary-bg-hover)" : "var(--action-primary-bg)",
@@ -89,27 +92,22 @@ function Button({
       boxShadow: hover ? "var(--shadow-md)" : "var(--shadow-sm)"
     },
     accent: {
-      background: "var(--gradient-flow)",
-      backgroundSize: "160% 160%",
-      backgroundPosition: hover ? "100% 50%" : "0% 50%",
+      background: "var(--ocean-700)",
       color: "#fff",
-      boxShadow: hover ? "var(--shadow-glow)" : "var(--shadow-sm)"
+      boxShadow: on ? "var(--shadow-glow)" : "var(--shadow-sm)"
     },
     secondary: {
-      background: hover ? "var(--action-secondary-bg-hover)" : "var(--surface-card)",
+      background: on ? "var(--action-secondary-bg-hover)" : "var(--surface-card)",
       color: "var(--ocean-700)",
-      boxShadow: "inset 0 0 0 1.5px " + (hover ? "var(--lagoon-500)" : "var(--border-strong)")
-    },
-    ghost: {
-      background: press ? "var(--action-ghost-bg-press)" : hover ? "var(--action-ghost-bg-hover)" : "transparent",
-      color: "var(--ocean-700)"
+      boxShadow: "inset 0 0 0 1.5px var(--border-strong)"
     },
     inverse: {
       background: hover ? "#fff" : "rgba(255,255,255,.92)",
       color: "var(--ocean-900)",
       boxShadow: hover ? "var(--shadow-glow)" : "none"
     }
-  }[variant];
+  };
+  V.ghost = V.secondary;
   const dis = disabled ? {
     background: "var(--action-disabled-bg)",
     color: "var(--action-disabled-fg)",
@@ -117,6 +115,44 @@ function Button({
     cursor: "not-allowed"
   } : {};
   const Tag = href ? "a" : "button";
+  const E = "var(--ease-flow)";
+  const rel = { position: "relative" };
+  const fill = isAccent && !disabled ? React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: "absolute", inset: 0, borderRadius: "inherit", background: "var(--gradient-flow)", pointerEvents: "none",
+      WebkitMaskImage: "linear-gradient(90deg,#000 0%,#000 33.33%,transparent 50%)", maskImage: "linear-gradient(90deg,#000 0%,#000 33.33%,transparent 50%)",
+      WebkitMaskSize: "300% 100%", maskSize: "300% 100%", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat",
+      WebkitMaskPosition: on ? "0% 0%" : "100% 0%", maskPosition: on ? "0% 0%" : "100% 0%",
+      transition: "-webkit-mask-position 720ms " + E + ", mask-position 720ms " + E
+    }
+  }) : null;
+  const trace = isOutline && !disabled ? React.createElement("svg", {
+    "aria-hidden": "true", width: "100%", height: "100%",
+    style: { position: "absolute", inset: 0, overflow: "visible", pointerEvents: "none" }
+  }, React.createElement("rect", {
+    x: 0.75, y: 0.75, rx: 9.25, pathLength: 100, fill: "none", stroke: "var(--lagoon-500)", strokeWidth: 1.5, strokeDasharray: "100 100", strokeLinecap: "round",
+    style: { width: "calc(100% - 1.5px)", height: "calc(100% - 1.5px)", strokeDashoffset: on ? 0 : 100, transition: "stroke-dashoffset 640ms " + E }
+  })) : null;
+  let right = null;
+  if (stretch) {
+    const hh = Math.round(s.ic * 0.7), hw = Math.round(hh * 0.64);
+    right = React.createElement("span", {
+      "aria-hidden": "true",
+      style: { position: "relative", flex: "none", height: s.ic, width: on ? s.ic + s.px : s.ic, transition: "width 420ms " + E }
+    }, React.createElement("span", {
+      style: { position: "absolute", left: 2, right: 2, top: s.ic / 2 - 1, height: 2, borderRadius: 2, background: "currentColor" }
+    }), React.createElement("svg", {
+      width: hw, height: hh, viewBox: "0 0 9 14", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round",
+      style: { position: "absolute", right: 0, top: (s.ic - hh) / 2 }
+    }, React.createElement("path", { d: "M2 1.5 7.6 7 2 12.5" })));
+  } else if (iconRight) {
+    right = React.createElement(__ds_scope.Icon, {
+      name: iconRight,
+      size: s.ic,
+      style: { position: "relative", transform: on ? "translateX(2px)" : "none", transition: "transform var(--duration-base) " + E }
+    });
+  }
   return /*#__PURE__*/React.createElement(Tag, {
     href: href,
     type: href ? undefined : type,
@@ -128,16 +164,21 @@ function Button({
       setHover(false);
       setPress(false);
     },
+    onFocus: () => setHover(true),
+    onBlur: () => setHover(false),
     onMouseDown: () => setPress(true),
     onMouseUp: () => setPress(false),
     style: {
+      position: "relative",
+      isolation: "isolate",
       display: fullWidth ? "flex" : "inline-flex",
       width: fullWidth ? "100%" : undefined,
+      boxSizing: "border-box",
       alignItems: "center",
       justifyContent: "center",
       gap: 8,
       height: s.h,
-      padding: "0 " + s.px + "px",
+      padding: "0 " + (stretch && on ? 0 : s.px) + "px 0 " + s.px + "px",
       border: 0,
       borderRadius: "var(--radius-button)",
       fontFamily: "var(--font-ui)",
@@ -147,23 +188,18 @@ function Button({
       textDecoration: "none",
       whiteSpace: "nowrap",
       cursor: "pointer",
+      overflow: isAccent ? "hidden" : undefined,
       transform: press && !disabled ? "scale(.97)" : "none",
-      transition: "background var(--duration-base) var(--ease-standard), background-position var(--duration-flow) var(--ease-flow), box-shadow var(--duration-base) var(--ease-standard), transform var(--duration-fast) var(--ease-standard)",
-      ...V,
+      transition: "background 280ms " + E + ", padding 420ms " + E + ", box-shadow var(--duration-base) var(--ease-standard), transform var(--duration-fast) var(--ease-standard)",
+      ...V[variant],
       ...dis,
       ...style
     }
-  }, iconLeft && /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+  }, fill, trace, iconLeft && /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: iconLeft,
-    size: s.ic
-  }), children, iconRight && /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: iconRight,
     size: s.ic,
-    style: {
-      transform: hover && !disabled ? "translateX(2px)" : "none",
-      transition: "transform var(--duration-base) var(--ease-flow)"
-    }
-  }));
+    style: rel
+  }), React.createElement("span", { style: rel }, children), right);
 }
 Object.assign(__ds_scope, { Button });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/actions/Button.jsx", error: String((e && e.message) || e) }); }
