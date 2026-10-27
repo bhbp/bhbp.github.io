@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="bhbp/styles.css"><script src="bhbp/ds-bundle.js"></script><style>html,body{margin:0;background:var(--surface-page)}a{color:var(--ocean-700)}a:hover{color:var(--ocean-800)}</style></helmet>
+<section style="box-sizing:border-box;width:100%;max-width:{{ secMax }};margin:0 auto;padding:{{ secPad }};display:flex;flex-direction:column;gap:28px;background:{{ secBg }}">
+<sc-if value="{{ full }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-direction:column;gap:12px;max-width:600px">
+<div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700);display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;background:var(--blush-400);box-shadow:0 0 0 4px rgba(245,176,195,.3)"></span>Collaborative execution</div>
+<h2 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong)">Aligned from kick-off to <span style="background:var(--gradient-flow);-webkit-background-clip:text;background-clip:text;color:transparent">launch.</span></h2>
+<p style="margin:0;font-family:var(--font-body);font-size:17px;line-height:1.6;color:var(--text-body);text-wrap:pretty">A shared vision, clear working agreements and regular check-ins keep every discipline pointed at the same North Star.</p>
+</div></sc-if>
+<div style="border-radius:28px;background:var(--surface-card);box-shadow:{{ cardShadow }};padding:{{ cardPad }};display:flex;flex-direction:column;gap:{{ cardGap }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px">
+<div style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:3px;border-radius:2px;background:var(--ocean-700)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Team 1</span></div>
+<div style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:3px;border-radius:2px;background:var(--lagoon-500)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Team 2</span></div>
+<div style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:3px;border-radius:2px;background:var(--fern-400)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Team 3</span></div>
+<div style="display:flex;align-items:center;gap:6px"></div>
+</div>
+<div style="display:grid;grid-template-columns:{{ cols }};gap:20px 24px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0">
+<div style="display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted)">Not this</div><div style="font-family:var(--font-display);font-weight:600;font-size:clamp(16px,1.6vw,20px);letter-spacing:-0.02em;color:var(--text-strong)">Kick off and drift</div></div>
+<svg viewBox="0 0 360 260" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="Product, design and engineering start aligned at kick-off, then drift apart and miss the North Star.">
+<line x1="16" y1="120" x2="342" y2="120" stroke="var(--ink-100)" stroke-width="2" stroke-dasharray="4 6"></line>
+<g fill="none" stroke-width="4" stroke-linecap="round" style="opacity:{{ lineOp }};transition:opacity 300ms var(--ease-flow)">
+<path d="M16 120 C 100 120, 170 96, 330 40" stroke="var(--ocean-700)" pathLength="1" stroke-dasharray="1 1" style="stroke-dashoffset:{{ off }};transition:{{ trans }}"></path>
+<path d="M16 120 C 100 120, 180 128, 330 146" stroke="var(--lagoon-500)" pathLength="1" stroke-dasharray="1 1" style="stroke-dashoffset:{{ off }};transition:{{ trans }}"></path>
+<path d="M16 120 C 100 120, 170 160, 330 205" stroke="var(--fern-400)" pathLength="1" stroke-dasharray="1 1" style="stroke-dashoffset:{{ off }};transition:{{ trans }}"></path>
+</g>
+<circle cx="16" cy="120" r="7" fill="var(--ocean-950)"></circle>
+<circle cx="342" cy="120" r="11" fill="none" stroke="var(--ink-300)" stroke-width="2.5" stroke-dasharray="3 4"></circle>
+<g font-family="var(--font-mono)" font-size="16" font-weight="600" letter-spacing="1.5">
+<text x="342" y="92" text-anchor="end" fill="var(--text-muted)">NORTH STAR</text>
+<text x="16" y="250" fill="var(--text-muted)">KICK-OFF</text>
+<text x="342" y="250" text-anchor="end" fill="var(--text-muted)">LAUNCH</text>
+</g>
+</svg>
+<p style="margin:0;max-width:300px;text-align:center;font-family:var(--font-body);font-size:15px;line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ lCap }}</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0">
+<div style="display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--fern-700)">This</div><div style="font-family:var(--font-display);font-weight:600;font-size:clamp(16px,1.6vw,20px);letter-spacing:-0.02em;color:var(--text-strong)">Align, check in, realign</div></div>
+<svg viewBox="0 0 360 260" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="Within shared working agreements, regular check-ins pull product, design and engineering back together so they land on the North Star.">
+<rect x="6" y="76" width="348" height="88" rx="44" fill="var(--lagoon-50)"></rect>
+<line x1="120" y1="64" x2="120" y2="184" stroke="var(--ink-300)" stroke-width="2" stroke-dasharray="4 5" style="opacity:{{ c1 }};transition:opacity 400ms var(--ease-flow)"></line>
+<line x1="225" y1="64" x2="225" y2="184" stroke="var(--ink-300)" stroke-width="2" stroke-dasharray="4 5" style="opacity:{{ c2 }};transition:opacity 400ms var(--ease-flow)"></line>
+<g fill="none" stroke-width="4" stroke-linecap="round" style="opacity:{{ lineOp }};transition:opacity 300ms var(--ease-flow)">
+<path d="M16 120 C 50 120, 70 92, 120 112 C 160 120, 190 98, 225 114 C 265 120, 300 108, 330 120" stroke="var(--ocean-700)" pathLength="1" stroke-dasharray="1 1" style="stroke-dashoffset:{{ off }};transition:{{ trans }}"></path>
+<path d="M16 120 C 50 120, 80 136, 120 120 C 160 120, 190 136, 225 120 C 265 120, 300 128, 330 120" stroke="var(--lagoon-500)" pathLength="1" stroke-dasharray="1 1" style="stroke-dashoffset:{{ off }};transition:{{ trans }}"></path>
+<path d="M16 120 C 50 120, 70 154, 120 128 C 160 120, 190 146, 225 126 C 265 120, 300 136, 330 120" stroke="var(--fern-400)" pathLength="1" stroke-dasharray="1 1" style="stroke-dashoffset:{{ off }};transition:{{ trans }}"></path>
+</g>
+<circle cx="16" cy="120" r="7" fill="var(--ocean-950)"></circle>
+<circle cx="342" cy="120" r="20" fill="var(--blush-300)" style="opacity:{{ glow }};transition:opacity 500ms var(--ease-flow)" opacity=".35"></circle>
+<circle cx="342" cy="120" r="11" fill="var(--blush-300)" stroke="var(--blush-400)" stroke-width="2"></circle>
+<g font-family="var(--font-mono)" font-size="16" font-weight="600" letter-spacing="1.5">
+<text x="16" y="60" fill="var(--lagoon-700)">AGREEMENTS</text>
+<text x="342" y="60" text-anchor="end" fill="var(--text-strong)">NORTH STAR</text>
+<text x="120" y="206" text-anchor="middle" fill="var(--text-muted)" style="opacity:{{ c1 }};transition:opacity 400ms var(--ease-flow)">CHECK-IN</text>
+<text x="225" y="206" text-anchor="middle" fill="var(--text-muted)" style="opacity:{{ c2 }};transition:opacity 400ms var(--ease-flow)">CHECK-IN</text>
+<text x="16" y="250" fill="var(--text-muted)">KICK-OFF</text>
+<text x="342" y="250" text-anchor="end" fill="var(--text-muted)">LAUNCH</text>
+</g>
+</svg>
+<p style="margin:0;max-width:300px;text-align:center;font-family:var(--font-body);font-size:15px;line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ rCap }}</p>
+</div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;speed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1600,&quot;min&quot;:800,&quot;max&quot;:3000,&quot;step&quot;:100,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;compact&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { s: 0, reset: false, narrow: typeof window !== "undefined" && window.innerWidth < 760 };
+  prog = [0, 0.36, 0.67, 1, 1];
+  lCaps = ["Everyone leaves kick-off aligned.", "Assumptions creep in. Nobody checks.", "Each discipline drifts toward its own goal.", "Launch misses the vision.", "Launch misses the vision."];
+  rCaps = ["One shared vision, agreements set up front.", "Check-in: drift caught early.", "Agreements revisited, patterns adjusted.", "Launch lands on the North Star.", "Launch lands on the North Star."];
+  componentDidMount() {
+    this.t = setInterval(() => {
+      if (this.state.s === 4) { this.setState({ s: 0, reset: true }); setTimeout(() => this.setState({ reset: false }), 60); }
+      else this.setState({ s: this.state.s + 1 });
+    }, this.props.speed ?? 1600);
+    this.onR = () => { const n = window.innerWidth < 760; if (n !== this.state.narrow) this.setState({ narrow: n }); };
+    window.addEventListener("resize", this.onR);
+  }
+  componentWillUnmount() { clearInterval(this.t); window.removeEventListener("resize", this.onR); }
+  renderVals() {
+    const s = this.state.s, c = !!this.props.compact;
+    return {
+      full: !c, secMax: c ? "none" : "1080px", secPad: c ? "0" : "clamp(28px,5vw,56px) clamp(20px,4vw,48px)", secBg: c ? "transparent" : "var(--surface-page)",
+      cardShadow: c ? "none" : "var(--shadow-md)", cardPad: c ? "20px 24px" : "clamp(20px,3.5vw,40px)", cardGap: c ? "14px" : "20px",
+      cols: this.state.narrow ? "minmax(0,1fr)" : "minmax(0,1fr) minmax(0,1fr)",
+      off: 1 - this.prog[s], trans: this.state.reset ? "none" : "stroke-dashoffset 1200ms var(--ease-flow)",
+      lineOp: this.state.reset ? 0 : 1,
+      c1: s >= 1 ? 1 : 0.25, c2: s >= 2 ? 1 : 0.25, glow: s >= 3 ? 0.45 : 0,
+      lCap: this.lCaps[s], rCap: this.rCaps[s]
+    };
+  }
+}
+</script>
+</body>
+</html>

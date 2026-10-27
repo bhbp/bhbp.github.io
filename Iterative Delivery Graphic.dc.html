@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="bhbp/styles.css"><script src="bhbp/ds-bundle.js"></script><style>html,body{margin:0;background:var(--surface-page)}a{color:var(--ocean-700)}a:hover{color:var(--ocean-800)}</style></helmet>
+<section style="box-sizing:border-box;width:100%;max-width:{{ secMax }};margin:0 auto;padding:{{ secPad }};display:flex;flex-direction:column;gap:28px;background:{{ secBg }}">
+<sc-if value="{{ full }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:560px">
+<div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700);display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;background:var(--blush-400);box-shadow:0 0 0 4px rgba(245,176,195,.3)"></span>Iterative delivery</div>
+<h2 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong)">Ship value, not <span style="background:var(--gradient-flow);-webkit-background-clip:text;background-clip:text;color:transparent">layers.</span></h2>
+<p style="margin:0;font-family:var(--font-body);font-size:17px;line-height:1.6;color:var(--text-body);text-wrap:pretty">Every release should be a thin, complete slice: feasible, valuable, usable and a little delightful. Customers get something real early, and each release learns from the last.</p>
+</div>
+</div>
+</sc-if>
+<div ref="{{ cardRef }}" style="border-radius:28px;background:var(--surface-card);box-shadow:{{ cardShadow }};padding:{{ cardPad }};display:flex;flex-direction:column;gap:{{ cardGap }}">
+<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+<div style="display:grid;grid-template-columns:minmax(0,4fr) minmax(0,2fr) minmax(0,4fr);align-items:end">
+<div style="display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted)">Not this</div><div style="font-family:var(--font-display);font-weight:600;font-size:clamp(16px,1.8vw,22px);letter-spacing:-0.02em;color:var(--text-strong)">Layer by layer</div></div>
+<div></div>
+<div style="display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--fern-700)">This</div><div style="font-family:var(--font-display);font-weight:600;font-size:clamp(16px,1.8vw,22px);letter-spacing:-0.02em;color:var(--text-strong)">Slice by slice</div></div>
+</div>
+<svg viewBox="{{ vb }}" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="Two pyramids of product layers. Left: built one layer per release. Right: every release is a slice through all layers.">
+<defs>
+<clipPath id="idg-tri"><path d="M188.6 32.8 Q200 14 211.4 32.8 L372.6 297.2 Q384 316 362 316 L38 316 Q16 316 27.4 297.2 Z"></path></clipPath>
+<clipPath id="idg-w0"><polygon points="200,14 -400,316 108,316"></polygon></clipPath>
+<clipPath id="idg-w1"><polygon points="200,14 108,316 200,316"></polygon></clipPath>
+<clipPath id="idg-w2"><polygon points="200,14 200,316 292,316"></polygon></clipPath>
+<clipPath id="idg-w3"><polygon points="200,14 292,316 800,316"></polygon></clipPath>
+</defs>
+<g>
+<g clip-path="url(#idg-tri)">
+<rect x="0" y="0" width="400" height="316" fill="var(--ink-100)"></rect>
+<rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)" style="opacity:{{ l0 }};transition:opacity 520ms var(--ease-flow)"></rect>
+<rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)" style="opacity:{{ l1 }};transition:opacity 520ms var(--ease-flow)"></rect>
+<rect x="0" y="106" width="400" height="70" fill="var(--fern-400)" style="opacity:{{ l2 }};transition:opacity 520ms var(--ease-flow)"></rect>
+<rect x="0" y="0" width="400" height="106" fill="var(--blush-300)" style="opacity:{{ l3 }};transition:opacity 520ms var(--ease-flow)"></rect>
+<g stroke="#FFFFFF" stroke-width="3"><line x1="0" y1="246" x2="400" y2="246"></line><line x1="0" y1="176" x2="400" y2="176"></line><line x1="0" y1="106" x2="400" y2="106"></line></g>
+</g>
+<g font-family="var(--font-mono)" font-size="{{ rFs }}" font-weight="600" text-anchor="end"><text x="24" y="{{ ly0 }}" fill="{{ lt0 }}">R1</text><text x="66" y="{{ ly1 }}" fill="{{ lt1 }}">R2</text><text x="109" y="{{ ly2 }}" fill="{{ lt2 }}">R3</text><text x="146" y="{{ ly3 }}" fill="{{ lt3 }}">R4</text></g>
+</g>
+<g font-family="var(--font-display)" font-size="{{ lFs }}" font-weight="600" text-anchor="middle" fill="var(--text-strong)">
+<circle cx="500" cy="{{ dy0 }}" r="{{ dotR }}" fill="var(--blush-300)"></circle><text x="500" y="{{ ty0 }}">Delightful</text>
+<circle cx="500" cy="{{ dy1 }}" r="{{ dotR }}" fill="var(--fern-400)"></circle><text x="500" y="{{ ty1 }}">Usable</text>
+<circle cx="500" cy="{{ dy2 }}" r="{{ dotR }}" fill="var(--lagoon-500)"></circle><text x="500" y="{{ ty2 }}">Valuable</text>
+<circle cx="500" cy="{{ dy3 }}" r="{{ dotR }}" fill="var(--ocean-700)"></circle><text x="500" y="{{ ty3 }}">Feasible</text>
+</g>
+<g transform="translate(600 0)">
+<g clip-path="url(#idg-tri)">
+<rect x="0" y="0" width="400" height="316" fill="var(--ink-100)"></rect>
+<g clip-path="url(#idg-w0)" style="opacity:{{ w0 }};transition:opacity 520ms var(--ease-flow)"><rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)"></rect><rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)"></rect><rect x="0" y="106" width="400" height="70" fill="var(--fern-400)"></rect><rect x="0" y="0" width="400" height="106" fill="var(--blush-300)"></rect></g>
+<g clip-path="url(#idg-w1)" style="opacity:{{ w1 }};transition:opacity 520ms var(--ease-flow)"><rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)"></rect><rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)"></rect><rect x="0" y="106" width="400" height="70" fill="var(--fern-400)"></rect><rect x="0" y="0" width="400" height="106" fill="var(--blush-300)"></rect></g>
+<g clip-path="url(#idg-w2)" style="opacity:{{ w2 }};transition:opacity 520ms var(--ease-flow)"><rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)"></rect><rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)"></rect><rect x="0" y="106" width="400" height="70" fill="var(--fern-400)"></rect><rect x="0" y="0" width="400" height="106" fill="var(--blush-300)"></rect></g>
+<g clip-path="url(#idg-w3)" style="opacity:{{ w3 }};transition:opacity 520ms var(--ease-flow)"><rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)"></rect><rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)"></rect><rect x="0" y="106" width="400" height="70" fill="var(--fern-400)"></rect><rect x="0" y="0" width="400" height="106" fill="var(--blush-300)"></rect></g>
+<g stroke="#FFFFFF" stroke-width="3"><line x1="0" y1="246" x2="400" y2="246"></line><line x1="0" y1="176" x2="400" y2="176"></line><line x1="0" y1="106" x2="400" y2="106"></line><line x1="200" y1="14" x2="108" y2="316"></line><line x1="200" y1="14" x2="200" y2="316"></line><line x1="200" y1="14" x2="292" y2="316"></line></g>
+</g>
+<g font-family="var(--font-mono)" font-size="{{ rFs }}" font-weight="600" text-anchor="middle"><text x="72" y="{{ by }}" fill="{{ wt0 }}">R1</text><text x="154" y="{{ by }}" fill="{{ wt1 }}">R2</text><text x="246" y="{{ by }}" fill="{{ wt2 }}">R3</text><text x="328" y="{{ by }}" fill="{{ wt3 }}">R4</text></g>
+</g>
+</svg>
+<div style="display:grid;grid-template-columns:minmax(0,4fr) minmax(0,2fr) minmax(0,4fr);gap:0;align-items:start">
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+
+<p style="margin:0;max-width:300px;font-family:var(--font-body);font-size:{{ capFs }};line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ lCap }}</p>
+</div>
+<div style="display:flex;justify-content:center;padding-top:4px"></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+
+<p style="margin:0;max-width:300px;font-family:var(--font-body);font-size:{{ capFs }};line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ rCap }}</p>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px"><div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--blush-300)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Delightful</span></div><div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--fern-400)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Usable</span></div><div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--lagoon-500)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Valuable</span></div><div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--ocean-700)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Feasible</span></div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><div style="display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted)">Not this</div><div style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-0.02em;color:var(--text-strong)">Layer by layer</div></div>
+<svg viewBox="0 0 400 324" style="width:100%;max-width:360px;height:auto;display:block;overflow:visible" role="img" aria-label="Pyramid built one layer per release."><defs>
+<clipPath id="idn-tri"><path d="M188.6 32.8 Q200 14 211.4 32.8 L372.6 297.2 Q384 316 362 316 L38 316 Q16 316 27.4 297.2 Z"></path></clipPath>
+<clipPath id="idn-w0"><polygon points="200,14 -400,316 108,316"></polygon></clipPath>
+<clipPath id="idn-w1"><polygon points="200,14 108,316 200,316"></polygon></clipPath>
+<clipPath id="idn-w2"><polygon points="200,14 200,316 292,316"></polygon></clipPath>
+<clipPath id="idn-w3"><polygon points="200,14 292,316 800,316"></polygon></clipPath>
+</defs>
+<g>
+<g clip-path="url(#idn-tri)">
+<rect x="0" y="0" width="400" height="316" fill="var(--ink-100)"></rect>
+<rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)" style="opacity:{{ l0 }};transition:opacity 520ms var(--ease-flow)"></rect>
+<rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)" style="opacity:{{ l1 }};transition:opacity 520ms var(--ease-flow)"></rect>
+<rect x="0" y="106" width="400" height="70" fill="var(--fern-400)" style="opacity:{{ l2 }};transition:opacity 520ms var(--ease-flow)"></rect>
+<rect x="0" y="0" width="400" height="106" fill="var(--blush-300)" style="opacity:{{ l3 }};transition:opacity 520ms var(--ease-flow)"></rect>
+<g stroke="#FFFFFF" stroke-width="3"><line x1="0" y1="246" x2="400" y2="246"></line><line x1="0" y1="176" x2="400" y2="176"></line><line x1="0" y1="106" x2="400" y2="106"></line></g>
+</g>
+<g font-family="var(--font-mono)" font-size="{{ rFs }}" font-weight="600" text-anchor="end"><text x="24" y="{{ ly0 }}" fill="{{ lt0 }}">R1</text><text x="66" y="{{ ly1 }}" fill="{{ lt1 }}">R2</text><text x="109" y="{{ ly2 }}" fill="{{ lt2 }}">R3</text><text x="146" y="{{ ly3 }}" fill="{{ lt3 }}">R4</text></g>
+</g>
+</svg>
+<p style="margin:0;max-width:320px;text-align:center;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ lCap }}</p></div>
+<div style="height:1px;background:var(--ink-100)"></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><div style="display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--fern-700)">This</div><div style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-0.02em;color:var(--text-strong)">Slice by slice</div></div>
+<svg viewBox="0 0 400 362" style="width:100%;max-width:360px;height:auto;display:block;overflow:visible" role="img" aria-label="Pyramid where every release is a slice through all layers.">
+<g>
+<g clip-path="url(#idn-tri)">
+<rect x="0" y="0" width="400" height="316" fill="var(--ink-100)"></rect>
+<g clip-path="url(#idn-w0)" style="opacity:{{ w0 }};transition:opacity 520ms var(--ease-flow)"><rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)"></rect><rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)"></rect><rect x="0" y="106" width="400" height="70" fill="var(--fern-400)"></rect><rect x="0" y="0" width="400" height="106" fill="var(--blush-300)"></rect></g>
+<g clip-path="url(#idn-w1)" style="opacity:{{ w1 }};transition:opacity 520ms var(--ease-flow)"><rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)"></rect><rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)"></rect><rect x="0" y="106" width="400" height="70" fill="var(--fern-400)"></rect><rect x="0" y="0" width="400" height="106" fill="var(--blush-300)"></rect></g>
+<g clip-path="url(#idn-w2)" style="opacity:{{ w2 }};transition:opacity 520ms var(--ease-flow)"><rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)"></rect><rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)"></rect><rect x="0" y="106" width="400" height="70" fill="var(--fern-400)"></rect><rect x="0" y="0" width="400" height="106" fill="var(--blush-300)"></rect></g>
+<g clip-path="url(#idn-w3)" style="opacity:{{ w3 }};transition:opacity 520ms var(--ease-flow)"><rect x="0" y="246" width="400" height="70" fill="var(--ocean-700)"></rect><rect x="0" y="176" width="400" height="70" fill="var(--lagoon-500)"></rect><rect x="0" y="106" width="400" height="70" fill="var(--fern-400)"></rect><rect x="0" y="0" width="400" height="106" fill="var(--blush-300)"></rect></g>
+<g stroke="#FFFFFF" stroke-width="3"><line x1="0" y1="246" x2="400" y2="246"></line><line x1="0" y1="176" x2="400" y2="176"></line><line x1="0" y1="106" x2="400" y2="106"></line><line x1="200" y1="14" x2="108" y2="316"></line><line x1="200" y1="14" x2="200" y2="316"></line><line x1="200" y1="14" x2="292" y2="316"></line></g>
+</g>
+<g font-family="var(--font-mono)" font-size="{{ rFs }}" font-weight="600" text-anchor="middle"><text x="72" y="{{ by }}" fill="{{ wt0 }}">R1</text><text x="154" y="{{ by }}" fill="{{ wt1 }}">R2</text><text x="246" y="{{ by }}" fill="{{ wt2 }}">R3</text><text x="328" y="{{ by }}" fill="{{ wt3 }}">R4</text></g>
+</g>
+</svg>
+<p style="margin:0;max-width:320px;text-align:center;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ rCap }}</p></div>
+</sc-if>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;speed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1600,&quot;min&quot;:800,&quot;max&quot;:3000,&quot;step&quot;:100,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;compact&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { r: this.props.startRelease ?? 1 };
+  lCaps = ["Infrastructure only. Nothing anyone can use yet.", "Valuable on paper, still hard to use.", "Usable, but months in without customer feedback.", "Finally complete, long after it could have delivered value."];
+  rCaps = ["A thin, complete slice people can use today.", "More scope, shaped by real feedback.", "Value compounds with every release.", "Same product. Value delivered all along."];
+  cardRef = React.createRef();
+  componentDidMount() { this.play(); const el = this.cardRef.current; if (el && window.ResizeObserver) { this.ro = new ResizeObserver(() => { const n = this.props.compact ? window.innerWidth < 760 : el.offsetWidth < 560; if (n !== this.state.narrow) this.setState({ narrow: n }); }); this.ro.observe(el); } }
+  componentWillUnmount() { clearInterval(this.t); this.ro && this.ro.disconnect(); }
+  play = () => {
+    clearInterval(this.t); this.setState({ r: 1 });
+    this.t = setInterval(() => this.setState((s) => ({ r: s.r >= 4 ? 1 : s.r + 1 })), this.props.speed ?? 1600);
+  };
+  renderVals() {
+    const r = this.state.r, lit = (k) => (r > k ? 1 : 0), tc = (k) => (r > k ? "var(--text-strong)" : "var(--ink-300)");
+    const v = { play: this.play, relLabel: "Release " + r + " of 4", lCap: this.lCaps[r - 1], rCap: this.rCaps[r - 1] };
+    for (let k = 0; k < 4; k++) { v["l" + k] = lit(k); v["w" + k] = lit(k); v["lt" + k] = tc(k); v["wt" + k] = tc(k); }
+    const c = !!this.props.compact; v.full = !c; v.secMax = c ? "none" : "1080px"; v.secPad = c ? "0" : "clamp(28px,5vw,56px) clamp(20px,4vw,48px)"; v.secBg = c ? "transparent" : "var(--surface-page)"; v.cardShadow = c ? "none" : "var(--shadow-md)"; v.cardPad = c ? "20px 24px" : "clamp(20px,3.5vw,40px)"; v.cardGap = c ? "10px" : "18px";
+    const mid = [70, 141, 211, 281];
+    v.vb = c ? "0 0 1000 362" : "0 0 1000 346"; v.lFs = c ? 34 : 19; v.rFs = c ? 22 : 13; v.dotR = c ? 7 : 5; v.by = c ? 352 : 340;
+    mid.forEach((y, k) => { v["ty" + k] = c ? y + 22 : y + 14; v["dy" + k] = c ? y - 22 : y - 12; });
+    [286, 216, 146, 78].forEach((y, k) => { v["ly" + k] = c ? y + 3 : y; });
+    v.capFs = c ? "15px" : "15px";
+    if (this.state.narrow) { v.rFs = 20; v.by = 350; }
+    v.cardRef = this.cardRef; v.narrow = !!this.state.narrow; v.wide = !this.state.narrow;
+    const ok = r === 4;
+    v.lPill = ok ? "Usable by customers" : "Not usable yet";
+    v.lPillBg = ok ? "var(--fern-100)" : "var(--ink-100)";
+    v.lPillFg = ok ? "var(--fern-800)" : "var(--text-muted)";
+    v.steps = [1, 2, 3, 4].map((n) => ({ label: "R" + n, on: n === r, bg: n === r ? "var(--ocean-700)" : "transparent", fg: n === r ? "#FFFFFF" : "var(--text-body)", go: () => { clearInterval(this.t); this.setState({ r: n }); } }));
+    return v;
+  }
+}
+</script>
+</body>
+</html>
