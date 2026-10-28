@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="bhbp/styles.css"><script src="bhbp/ds-bundle.js"></script><style>html,body{margin:0;background:var(--surface-page)}a{color:var(--ocean-700)}a:hover{color:var(--ocean-800)}</style></helmet>
+<section style="box-sizing:border-box;width:100%;max-width:{{ secMax }};margin:0 auto;padding:{{ secPad }};display:flex;flex-direction:column;gap:28px;background:{{ secBg }}">
+<sc-if value="{{ full }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-direction:column;gap:12px;max-width:600px">
+<div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700);display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;background:var(--blush-400);box-shadow:0 0 0 4px rgba(245,176,195,.3)"></span>Digital product strategy</div>
+<h2 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong)">Measured bets, not <span style="background:var(--gradient-flow);-webkit-background-clip:text;background-clip:text;color:transparent">hunches.</span></h2>
+<p style="margin:0;font-family:var(--font-body);font-size:17px;line-height:1.6;color:var(--text-body);text-wrap:pretty">Start from the goal, measure every idea against it, then spend effort where the impact is highest.</p>
+</div></sc-if>
+<div style="border-radius:28px;background:var(--surface-card);box-shadow:{{ cardShadow }};padding:{{ cardPad }};display:flex;flex-direction:column;gap:{{ cardGap }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px">
+<div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink-300)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Assumed</span></div>
+<div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--lagoon-500)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Measured</span></div>
+<div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--ocean-700)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Chosen</span></div>
+<div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--fern-400)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Quick win</span></div>
+</div>
+<div style="display:grid;grid-template-columns:{{ cols }};gap:20px 24px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0">
+<div style="display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted)">Not this</div><div style="font-family:var(--font-display);font-weight:600;font-size:clamp(16px,1.6vw,20px);letter-spacing:-0.02em;color:var(--text-strong)">Loudest Opinion Wins</div></div>
+<svg viewBox="0 0 360 270" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="Ideas placed on an effort versus impact grid by opinion. The most confident pick turns out to be high effort and low impact.">
+<rect x="30" y="10" width="320" height="220" rx="14" fill="var(--ink-50)"></rect>
+<line x1="190" y1="10" x2="190" y2="230" stroke="var(--ink-200)" stroke-width="2" stroke-dasharray="4 6"></line>
+<line x1="30" y1="120" x2="350" y2="120" stroke="var(--ink-200)" stroke-width="2" stroke-dasharray="4 6"></line>
+<sc-for list="{{ lDots }}" as="d" hint-placeholder-count="5"><g style="transform:translate({{ d.x }}px,{{ d.y }}px);transition:{{ d.trans }}"><circle r="{{ d.ring }}" fill="none" stroke="var(--ocean-700)" stroke-width="2" style="opacity:{{ d.ringOp }};transition:opacity 400ms var(--ease-flow)"></circle><circle r="{{ d.r }}" fill="{{ d.fill }}" stroke="{{ d.stroke }}" stroke-width="2.5" stroke-dasharray="{{ d.dash }}" style="transition:fill 400ms var(--ease-flow)"></circle></g></sc-for>
+<g text-anchor="middle" font-family="var(--font-mono)" font-size="15" font-weight="600" fill="var(--ocean-700)"><text x="80" y="86" style="opacity:{{ thinkOp }};transition:opacity 400ms var(--ease-flow)">“I THINK”</text><text x="290" y="172" style="opacity:{{ lowOp }};transition:opacity 400ms var(--ease-flow)">LOW IMPACT</text></g>
+<g font-family="var(--font-mono)" font-size="16" font-weight="600" letter-spacing="1.5" fill="var(--text-muted)">
+<text x="14" y="120" text-anchor="middle" transform="rotate(-90 14 120)">IMPACT</text>
+<text x="30" y="258">LOW EFFORT</text>
+<text x="350" y="258" text-anchor="end">HIGH</text>
+</g>
+</svg>
+<p style="margin:0;max-width:300px;text-align:center;font-family:var(--font-body);font-size:15px;line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ lCap }}</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0">
+<div style="display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--fern-700)">This</div><div style="font-family:var(--font-display);font-weight:600;font-size:clamp(16px,1.6vw,20px);letter-spacing:-0.02em;color:var(--text-strong)">Goals, Data, then Focus</div></div>
+<svg viewBox="0 0 360 270" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="Ideas are measured against the goal and moved to their real effort and impact. The low effort, high impact quick win is chosen first.">
+<rect x="30" y="10" width="320" height="220" rx="14" fill="var(--ink-50)"></rect>
+<path d="M44 10 H190 V120 H30 V24 Q30 10 44 10 Z" fill="var(--fern-50)" style="opacity:{{ qOp }};transition:opacity 500ms var(--ease-flow)"></path>
+<line x1="190" y1="10" x2="190" y2="230" stroke="var(--ink-200)" stroke-width="2" stroke-dasharray="4 6"></line>
+<line x1="30" y1="120" x2="350" y2="120" stroke="var(--ink-200)" stroke-width="2" stroke-dasharray="4 6"></line>
+<g font-family="var(--font-mono)" font-size="14" font-weight="600" letter-spacing="1.2" style="opacity:{{ qOp }};transition:opacity 500ms var(--ease-flow)">
+<text x="44" y="34" fill="var(--fern-800)">QUICK WINS</text>
+<text x="336" y="34" text-anchor="end" fill="var(--text-muted)">BIG BETS</text>
+</g>
+<sc-for list="{{ rDots }}" as="d" hint-placeholder-count="5"><g style="transform:translate({{ d.x }}px,{{ d.y }}px);transition:{{ d.trans }}"><circle r="{{ d.ring }}" fill="none" stroke="var(--fern-500)" stroke-width="2" style="opacity:{{ d.ringOp }};transition:opacity 400ms var(--ease-flow)"></circle><circle r="{{ d.r }}" fill="{{ d.fill }}" stroke="{{ d.stroke }}" stroke-width="2.5" stroke-dasharray="{{ d.dash }}" style="transition:fill 400ms var(--ease-flow)"></circle></g></sc-for>
+<g font-family="var(--font-mono)" font-size="16" font-weight="600" letter-spacing="1.5">
+<text x="14" y="120" text-anchor="middle" transform="rotate(-90 14 120)" fill="var(--fern-700)">IMPACT ON GOAL</text>
+<text x="30" y="258" fill="var(--text-muted)">LOW EFFORT</text>
+<text x="350" y="258" text-anchor="end" fill="var(--text-muted)">HIGH</text>
+</g>
+</svg>
+<p style="margin:0;max-width:300px;text-align:center;font-family:var(--font-body);font-size:15px;line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ rCap }}</p>
+</div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;speed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1800,&quot;min&quot;:800,&quot;max&quot;:3000,&quot;step&quot;:100,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;compact&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { s: 0, reset: false, narrow: typeof window !== "undefined" && window.innerWidth < 760 };
+  op = [[80, 50], [280, 60], [190, 190], [320, 165], [130, 135]];
+  real = [[290, 200], [95, 62], [300, 50], [235, 185], [70, 172]];
+  lCaps = ["Ideas ranked by who sounds most sure.", "\u201CI think this one\u201D wins the room.", "Built on belief. No baseline, no measure.", "Months of effort, little impact.", "Months of effort, little impact."];
+  rCaps = ["Start from the goal: what outcome matters?", "Measure every idea against that goal.", "Plot real effort against real impact.", "Ship the quick win first. Plan the big bet.", "Ship the quick win first. Plan the big bet."];
+  componentDidMount() {
+    this.t = setInterval(() => {
+      if (this.state.s === 4) { this.setState({ s: 0, reset: true }); setTimeout(() => this.setState({ reset: false }), 60); }
+      else this.setState({ s: this.state.s + 1 });
+    }, this.props.speed ?? 1800);
+    this.onR = () => { const n = window.innerWidth < 760; if (n !== this.state.narrow) this.setState({ narrow: n }); };
+    window.addEventListener("resize", this.onR);
+  }
+  componentWillUnmount() { clearInterval(this.t); window.removeEventListener("resize", this.onR); }
+  renderVals() {
+    const s = this.state.s, c = !!this.props.compact, trans = this.state.reset ? "none" : "transform 1100ms var(--ease-flow)";
+    const assumed = { fill: "#FFFFFF", stroke: "var(--ink-300)", dash: "3 3" };
+    const lDots = this.op.map((p, k) => {
+      const chosen = k === 0 && s >= 1, moved = k === 0 && s >= 3, pos = moved ? this.real[0] : p;
+      return Object.assign({ x: pos[0], y: pos[1], r: chosen ? 10 : 8, ring: 18, ringOp: chosen ? 1 : 0, trans }, chosen ? { fill: "var(--ocean-700)", stroke: "var(--ocean-700)", dash: "none" } : assumed);
+    });
+    const rDots = this.op.map((p, k) => {
+      const m = s >= 1, pos = m ? this.real[k] : p, win = k === 1 && s >= 3, bet = k === 2 && s >= 3;
+      const st = win ? { fill: "var(--fern-400)", stroke: "var(--fern-400)", dash: "none" } : bet ? { fill: "var(--ocean-700)", stroke: "var(--ocean-700)", dash: "none" } : m ? { fill: "var(--lagoon-500)", stroke: "var(--lagoon-500)", dash: "none" } : assumed;
+      return Object.assign({ x: pos[0], y: pos[1], r: win ? 10 : 8, ring: 18, ringOp: win ? 1 : 0, trans }, st);
+    });
+    return {
+      full: !c, secMax: c ? "none" : "1080px", secPad: c ? "0" : "clamp(28px,5vw,56px) clamp(20px,4vw,48px)", secBg: c ? "transparent" : "var(--surface-page)",
+      cardShadow: c ? "none" : "var(--shadow-md)", cardPad: c ? "20px 24px" : "clamp(20px,3.5vw,40px)", cardGap: c ? "14px" : "20px",
+      cols: this.state.narrow ? "minmax(0,1fr)" : "minmax(0,1fr) minmax(0,1fr)",
+      lDots, rDots, qOp: s >= 2 ? 1 : 0,
+      thinkOp: s >= 1 && s < 3 ? 1 : 0, lowOp: s >= 3 ? 1 : 0,
+      lCap: this.lCaps[s], rCap: this.rCaps[s]
+    };
+  }
+}
+</script>
+</body>
+</html>

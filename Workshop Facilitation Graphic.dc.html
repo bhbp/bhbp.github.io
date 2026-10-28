@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="bhbp/styles.css"><script src="bhbp/ds-bundle.js"></script><style>html,body{margin:0;background:var(--surface-page)}a{color:var(--ocean-700)}a:hover{color:var(--ocean-800)}</style></helmet>
+<section style="box-sizing:border-box;width:100%;max-width:{{ secMax }};margin:0 auto;padding:{{ secPad }};display:flex;flex-direction:column;gap:28px;background:{{ secBg }}">
+<sc-if value="{{ full }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-direction:column;gap:12px;max-width:600px">
+<div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700);display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;background:var(--blush-400);box-shadow:0 0 0 4px rgba(245,176,195,.3)"></span>Workshop facilitation</div>
+<h2 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong)">Every voice, one <span style="background:var(--gradient-flow);-webkit-background-clip:text;background-clip:text;color:transparent">output.</span></h2>
+<p style="margin:0;font-family:var(--font-body);font-size:17px;line-height:1.6;color:var(--text-body);text-wrap:pretty">State the intent, start from a blank canvas, listen fully, and leave with the deliverable you promised.</p>
+</div></sc-if>
+<div style="border-radius:28px;background:var(--surface-card);box-shadow:{{ cardShadow }};padding:{{ cardPad }};display:flex;flex-direction:column;gap:{{ cardGap }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px">
+<div style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;background:var(--ocean-950);box-shadow:0 0 0 2px var(--ink-200)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Facilitator</span></div>
+<div style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;background:var(--lagoon-500)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Participants</span></div>
+<div style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:3px;background:var(--fern-400)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Ideas shared</span></div>
+</div>
+<div style="display:grid;grid-template-columns:{{ cols }};gap:20px 24px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0">
+<div style="display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted)">Not this</div><div style="font-family:var(--font-display);font-weight:600;font-size:clamp(16px,1.6vw,20px);letter-spacing:-0.02em;color:var(--text-strong)">Closed Answers</div></div>
+<svg viewBox="0 0 360 250" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="A workshop where the answer is decided up front, one voice dominates, everyone else waits, and the session ends without a clear output.">
+<line x1="180" y1="26" x2="180" y2="130" stroke="var(--ocean-950)" stroke-width="4" stroke-linecap="round" style="opacity:{{ lLead }};transition:opacity 400ms var(--ease-flow)"></line>
+<rect x="110" y="80" width="140" height="100" rx="14" fill="var(--ocean-700)"></rect>
+<text x="180" y="136" text-anchor="middle" font-family="var(--font-mono)" font-size="15" font-weight="600" letter-spacing="1.5" fill="#FFFFFF">THE ANSWER</text>
+<circle cx="180" cy="26" r="15" fill="var(--ocean-950)" stroke="var(--ink-200)" stroke-width="3"></circle>
+<sc-for list="{{ lPeople }}" as="p" hint-placeholder-count="4"><circle cx="{{ p.x }}" cy="{{ p.y }}" r="14" fill="{{ p.c }}" style="opacity:{{ p.op }};transition:opacity 400ms var(--ease-flow)"></circle><g fill="var(--ink-300)" style="opacity:{{ p.wait }};transition:opacity 400ms var(--ease-flow)"><circle cx="{{ p.b1 }}" cy="{{ p.by }}" r="3"></circle><circle cx="{{ p.b2 }}" cy="{{ p.by }}" r="3"></circle><circle cx="{{ p.b3 }}" cy="{{ p.by }}" r="3"></circle></g></sc-for>
+<g style="opacity:{{ lOut }};transition:opacity 400ms var(--ease-flow)"><rect x="100" y="196" width="160" height="30" rx="15" fill="var(--coral-100)"></rect><text x="180" y="216" text-anchor="middle" font-family="var(--font-mono)" font-size="13" font-weight="600" letter-spacing="1.2" fill="var(--coral-700)">NO CLEAR OUTPUT</text></g>
+</svg>
+<p style="margin:0;max-width:300px;text-align:center;font-family:var(--font-body);font-size:15px;line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ lCap }}</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0">
+<div style="display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><div style="font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--fern-700)">This</div><div style="font-family:var(--font-display);font-weight:600;font-size:clamp(16px,1.6vw,20px);letter-spacing:-0.02em;color:var(--text-strong)">Blank Canvas</div></div>
+<svg viewBox="0 0 360 250" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="A workshop that states its intent, starts with a blank canvas, gathers every perspective, and ends with an ordered deliverable.">
+<path d="M180 26 L316 70 L316 186 L44 186 L44 70 Z" fill="none" stroke="var(--lagoon-500)" stroke-width="2.5" stroke-dasharray="5 6" stroke-linejoin="round" style="opacity:{{ ring }};transition:opacity 500ms var(--ease-flow)"></path>
+<sc-for list="{{ rLines }}" as="l" hint-placeholder-count="5"><line x1="{{ l.x }}" y1="{{ l.y }}" x2="180" y2="130" stroke="{{ l.c }}" stroke-width="3.5" stroke-linecap="round" style="opacity:{{ l.op }};transition:opacity 400ms var(--ease-flow)"></line></sc-for>
+<rect x="110" y="80" width="140" height="100" rx="14" fill="#FFFFFF" stroke="var(--ink-300)" stroke-width="2" stroke-dasharray="5 5"></rect>
+<text x="180" y="136" text-anchor="middle" font-family="var(--font-mono)" font-size="14" font-weight="600" letter-spacing="1.5" fill="var(--text-muted)" style="opacity:{{ blankOp }};transition:opacity 300ms var(--ease-flow)">BLANK CANVAS</text>
+<sc-for list="{{ notes }}" as="n" hint-placeholder-count="4"><g style="transform:translate({{ n.x }}px,{{ n.y }}px);opacity:{{ n.op }};transition:{{ n.trans }}"><rect x="0" y="0" width="28" height="16" rx="4" fill="{{ n.c }}" style="transform-box:fill-box;transform-origin:0 50%;transform:scaleX({{ n.sx }});transition:{{ n.strans }}"></rect></g></sc-for>
+<circle cx="180" cy="26" r="15" fill="var(--ocean-950)" stroke="var(--ink-200)" stroke-width="3"></circle>
+<circle cx="44" cy="70" r="14" fill="var(--ocean-700)"></circle><circle cx="316" cy="70" r="14" fill="var(--lagoon-500)"></circle><circle cx="316" cy="186" r="14" fill="var(--fern-400)"></circle><circle cx="44" cy="186" r="14" fill="var(--blush-300)"></circle>
+<rect x="100" y="196" width="160" height="30" rx="15" fill="{{ pillBg }}" style="transition:fill 400ms var(--ease-flow)"></rect>
+<text x="180" y="216" text-anchor="middle" font-family="var(--font-mono)" font-size="13" font-weight="600" letter-spacing="1.2" fill="{{ pillFg }}">{{ pill }}</text>
+</svg>
+<p style="margin:0;max-width:300px;text-align:center;font-family:var(--font-body);font-size:15px;line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ rCap }}</p>
+</div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;speed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1800,&quot;min&quot;:800,&quot;max&quot;:3000,&quot;step&quot;:100,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;compact&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { s: 0, reset: false, narrow: typeof window !== "undefined" && window.innerWidth < 760 };
+  ppl = [[44, 70, "var(--ocean-700)"], [316, 70, "var(--lagoon-500)"], [316, 186, "var(--fern-400)"], [44, 186, "var(--blush-300)"]];
+  lCaps = ["The answer is decided before anyone arrives.", "One voice fills the room.", "Everyone else waits for their turn.", "It ends. Nobody is sure what was decided.", "It ends. Nobody is sure what was decided."];
+  rCaps = ["State the intent. Start with a blank canvas.", "Every perspective lands on the canvas.", "People listen fully, then build on each other.", "Leave with the deliverable you promised.", "Leave with the deliverable you promised."];
+  componentDidMount() {
+    this.t = setInterval(() => {
+      if (this.state.s === 4) { this.setState({ s: 0, reset: true }); setTimeout(() => this.setState({ reset: false }), 60); }
+      else this.setState({ s: this.state.s + 1 });
+    }, this.props.speed ?? 1800);
+    this.onR = () => { const n = window.innerWidth < 760; if (n !== this.state.narrow) this.setState({ narrow: n }); };
+    window.addEventListener("resize", this.onR);
+  }
+  componentWillUnmount() { clearInterval(this.t); window.removeEventListener("resize", this.onR); }
+  renderVals() {
+    const s = this.state.s, c = !!this.props.compact, rs = this.state.reset;
+    const lPeople = this.ppl.map(([x, y, col]) => {
+      const right = x > 180, bx = right ? x - 38 : x + 26;
+      return { x, y, c: col, op: s >= 1 ? 0.45 : 1, wait: s >= 2 ? 1 : 0, b1: bx, b2: bx + 8, b3: bx + 16, by: y - 18 };
+    });
+    const rLines = [[180, 26, "var(--ocean-950)"]].concat(this.ppl).map(([x, y, col], k) => ({ x, y, c: col, op: s === 0 ? (k === 0 ? 0.9 : 0) : s >= 3 ? 0.25 : 0.9 }));
+    const scatter = [[122, 92], [204, 96], [130, 150], [206, 152]], rows = [[124, 90], [124, 112], [124, 134], [124, 156]];
+    const cols = ["var(--ocean-700)", "var(--lagoon-500)", "var(--fern-400)", "var(--blush-300)"];
+    const notes = cols.map((col, k) => {
+      const p = s >= 3 ? rows[k] : scatter[k];
+      return { x: p[0], y: p[1], c: col, op: s >= 1 ? 1 : 0, sx: s >= 3 ? 4 - k * 0.6 : 1,
+        trans: rs ? "none" : "transform 900ms var(--ease-flow), opacity 400ms var(--ease-flow)", strans: rs ? "none" : "transform 900ms var(--ease-flow)" };
+    });
+    const done = s >= 3;
+    return {
+      full: !c, secMax: c ? "none" : "1080px", secPad: c ? "0" : "clamp(28px,5vw,56px) clamp(20px,4vw,48px)", secBg: c ? "transparent" : "var(--surface-page)",
+      cardShadow: c ? "none" : "var(--shadow-md)", cardPad: c ? "20px 24px" : "clamp(20px,3.5vw,40px)", cardGap: c ? "14px" : "20px",
+      cols: this.state.narrow ? "minmax(0,1fr)" : "minmax(0,1fr) minmax(0,1fr)",
+      lLead: s >= 1 ? 1 : 0, lOut: s >= 3 ? 1 : 0, lPeople,
+      rLines, notes, ring: s === 2 ? 1 : 0, blankOp: s === 0 ? 1 : 0,
+      pill: done ? "DELIVERABLE READY" : "INTENT STATED", pillBg: done ? "var(--fern-100)" : "var(--lagoon-50)", pillFg: done ? "var(--fern-800)" : "var(--lagoon-700)",
+      lCap: this.lCaps[s], rCap: this.rCaps[s]
+    };
+  }
+}
+</script>
+</body>
+</html>
