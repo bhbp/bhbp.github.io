@@ -14,7 +14,7 @@
 <h2 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong)">Every voice, one <span style="background:var(--gradient-flow);-webkit-background-clip:text;background-clip:text;color:transparent">output.</span></h2>
 <p style="margin:0;font-family:var(--font-body);font-size:17px;line-height:1.6;color:var(--text-body);text-wrap:pretty">State the intent, start from a blank canvas, listen fully, and leave with the deliverable you promised.</p>
 </div></sc-if>
-<div style="border-radius:28px;background:var(--surface-card);box-shadow:{{ cardShadow }};padding:{{ cardPad }};display:flex;flex-direction:column;gap:{{ cardGap }}">
+<div ref="{{ cardRef }}" style="border-radius:28px;background:var(--surface-card);box-shadow:{{ cardShadow }};padding:{{ cardPad }};display:flex;flex-direction:column;gap:{{ cardGap }}">
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px">
 <div style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;background:var(--ocean-950);box-shadow:0 0 0 2px var(--ink-200)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Facilitator</span></div>
 <div style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;background:var(--lagoon-500)"></span><span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-strong)">Participants</span></div>
@@ -49,6 +49,11 @@
 <p style="margin:0;max-width:300px;text-align:center;font-family:var(--font-body);font-size:15px;line-height:1.55;color:var(--text-body);text-wrap:pretty">{{ rCap }}</p>
 </div>
 </div>
+<div style="display:flex;align-items:center;justify-content:center;gap:8px;padding-top:2px">
+<button aria-label="Previous frame" onClick="{{ prev }}" style="width:44px;height:44px;flex:none;border-radius:10px;border:0;padding:0;background:transparent;color:var(--ocean-700);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:{{ prevOp }};transition:background 200ms var(--ease-flow),opacity 200ms var(--ease-flow)" style-hover="background:var(--lagoon-50)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<div style="display:flex;align-items:center"><sc-for list="{{ dots }}" as="d" hint-placeholder-count="3"><button aria-label="{{ d.label }}" aria-current="{{ d.cur }}" onClick="{{ d.go }}" style="height:44px;min-width:28px;padding:0 4px;border:0;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="display:block;width:{{ d.w }};height:10px;border-radius:999px;background:{{ d.bg }};transition:width 360ms var(--ease-flow),background 200ms var(--ease-flow)"></span></button></sc-for></div>
+<button aria-label="Next frame" onClick="{{ next }}" style="width:44px;height:44px;flex:none;border-radius:10px;border:0;padding:0;background:transparent;color:var(--ocean-700);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:{{ nextOp }};transition:background 200ms var(--ease-flow),opacity 200ms var(--ease-flow)" style-hover="background:var(--lagoon-50)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+</div>
 </div>
 </section>
 </x-dc>
@@ -58,15 +63,17 @@ class Component extends DCLogic {
   ppl = [[44, 70, "var(--ocean-700)"], [316, 70, "var(--lagoon-500)"], [316, 186, "var(--fern-400)"], [44, 186, "var(--blush-300)"]];
   lCaps = ["The answer is decided before anyone arrives.", "One voice fills the room.", "Everyone else waits for their turn.", "It ends. Nobody is sure what was decided.", "It ends. Nobody is sure what was decided."];
   rCaps = ["State the intent. Start with a blank canvas.", "Every perspective lands on the canvas.", "People listen fully, then build on each other.", "Leave with the deliverable you promised.", "Leave with the deliverable you promised."];
+  cardRef = React.createRef();
+  startOnce = () => { if (this.started) return; this.started = true; this.t = setInterval(() => { if (this.state.s >= 3) { clearInterval(this.t); return; } this.setState({ s: this.state.s + 1 }); }, this.props.speed ?? 1800); };
+  watch = () => { const el = this.cardRef.current; if (!el || !window.IntersectionObserver) return this.startOnce(); this.io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { this.io.disconnect(); this.startOnce(); } }, { threshold: 0.35 }); this.io.observe(el); };
+  goF = (f) => { clearInterval(this.t); this.started = true; this.io && this.io.disconnect(); this.setState({ s: f + 1 }); };
+  navVals(f) { const go = (k) => () => this.goF(Math.max(0, Math.min(2, k))); return { cardRef: this.cardRef, prev: go(f - 1), next: go(f + 1), prevOp: f <= 0 ? 0.35 : 1, nextOp: f >= 2 ? 0.35 : 1, dots: [0, 1, 2].map((k) => ({ label: "Frame " + (k + 1) + " of 3", cur: k === f ? "true" : "false", go: go(k), w: k === f ? "24px" : "10px", bg: k === f ? "var(--ocean-700)" : "var(--ink-200)" })) }; }
   componentDidMount() {
-    this.t = setInterval(() => {
-      if (this.state.s === 4) { this.setState({ s: 0, reset: true }); setTimeout(() => this.setState({ reset: false }), 60); }
-      else this.setState({ s: this.state.s + 1 });
-    }, this.props.speed ?? 1800);
+    this.watch();
     this.onR = () => { const n = window.innerWidth < 760; if (n !== this.state.narrow) this.setState({ narrow: n }); };
     window.addEventListener("resize", this.onR);
   }
-  componentWillUnmount() { clearInterval(this.t); window.removeEventListener("resize", this.onR); }
+  componentWillUnmount() { clearInterval(this.t); this.io && this.io.disconnect(); window.removeEventListener("resize", this.onR); }
   renderVals() {
     const s = this.state.s, c = !!this.props.compact, rs = this.state.reset;
     const lPeople = this.ppl.map(([x, y, col]) => {
@@ -82,7 +89,7 @@ class Component extends DCLogic {
         trans: rs ? "none" : "transform 900ms var(--ease-flow), opacity 400ms var(--ease-flow)", strans: rs ? "none" : "transform 900ms var(--ease-flow)" };
     });
     const done = s >= 3;
-    return {
+    return { ...this.navVals(s - 1),
       full: !c, secMax: c ? "none" : "1080px", secPad: c ? "0" : "clamp(28px,5vw,56px) clamp(20px,4vw,48px)", secBg: c ? "transparent" : "var(--surface-page)",
       cardShadow: c ? "none" : "var(--shadow-md)", cardPad: c ? "20px 24px" : "clamp(20px,3.5vw,40px)", cardGap: c ? "14px" : "20px",
       cols: this.state.narrow ? "minmax(0,1fr)" : "minmax(0,1fr) minmax(0,1fr)",
