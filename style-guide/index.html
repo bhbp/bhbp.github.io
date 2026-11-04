@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script>(function(){var seg=location.pathname.split("/")[1],root="/";if(seg&&/\.github\.io$/.test(location.hostname)){try{var x=new XMLHttpRequest();x.open("HEAD","/"+seg+"/support.js",false);x.send();if(x.status===200)root="/"+seg+"/";}catch(e){}}document.write('<base href="'+root+'">');})();</script>
+<base href="/">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
@@ -205,6 +205,21 @@ html{scroll-behavior:smooth}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
+  componentDidMount() {
+    this.onAnchor = (e) => {
+      const a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute("href").slice(1);
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: reduce ? "auto" : "smooth" });
+      try { history.replaceState(null, "", location.pathname + location.search + "#" + id); } catch (err) {}
+    };
+    document.addEventListener("click", this.onAnchor);
+  }
+  componentWillUnmount() { document.removeEventListener("click", this.onAnchor); }
   renderVals() {
     return {
       printPage: () => {

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script>(function(){var seg=location.pathname.split("/")[1],root="/";if(seg&&/\.github\.io$/.test(location.hostname)){try{var x=new XMLHttpRequest();x.open("HEAD","/"+seg+"/support.js",false);x.send();if(x.status===200)root="/"+seg+"/";}catch(e){}}document.write('<base href="'+root+'">');})();</script>
+<base href="/">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
@@ -82,7 +82,7 @@ html,body{margin:0;background:#F5F8FA}a{color:var(--ocean-700)}a:hover{color:var
 <section data-screen-label="Contact" style="padding:clamp(64px,8vw,96px) 0 clamp(72px,9vw,112px)">
 <div style="position:relative;overflow:hidden;border-radius:40px;background:var(--gradient-flow);color:#FFFFFF;padding:clamp(32px,5vw,56px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px">
 <div style="max-width:560px"><h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.4vw,40px);line-height:1.05;letter-spacing:-0.035em;color:#FFFFFF;margin:0">Need Something Else?</h2><p style="margin:12px 0 0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.88)">Interviews, speaking or a custom bio — I'll reply within two business days.</p></div>
-<div style="display:flex;flex-wrap:wrap;gap:12px"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="inverse" size="lg" icon-left="mail" on-click="{{ openContact }}" hint-size="160px,56px">Email Me</x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="inverse" size="lg" icon-left="linkedin" href="https://www.linkedin.com/in/william-hayes-pmp/" hint-size="150px,56px">LinkedIn</x-import></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="inverse" size="lg" icon-left="mail" on-click="{{ openContact }}" hint-size="160px,56px">Email Me</x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="inverse" size="lg" icon-left="linkedin" href="https://www.linkedin.com/in/william-hayes-pmp/" on-click="{{ openLinkedIn }}" hint-size="150px,56px">LinkedIn</x-import></div>
 </div>
 </section>
 </div>
@@ -125,6 +125,7 @@ class Component extends DCLogic {
     ];
     const S = [["Ocean 700", "#003E7D", "#FFFFFF"], ["Lagoon 500", "#2A98B4", "#00142B"], ["Fern 400", "#2FC68C", "#00142B"], ["Orange 300", "#FFA040", "#00142B"]];
     return {
+      openLinkedIn: (e) => { if (e && e.preventDefault) e.preventDefault(); window.open("https://www.linkedin.com/in/william-hayes-pmp/", "_blank", "noopener"); },
       dlResume: () => this.dl("assets/William_Hayes_Resume.pdf", "William_Hayes_Resume.pdf"),
       dlCanvas: () => this.dl("assets/William_Hayes_Opportunity_Canvas.pdf", "William_Hayes_Opportunity_Canvas.pdf"),
       dialogOpen: this.state.dialogOpen,
