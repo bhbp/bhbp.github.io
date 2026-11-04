@@ -2,13 +2,16 @@
 <html>
 <head>
 <meta charset="utf-8">
+<script>window.BHBP_PATHS=true;document.write('<base href="'+location.pathname.replace(/[^\/]*$/,"")+'">');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bill Hayes — Builds Products</title>
+<title>Bill Hayes Builds Products</title>
 <meta name="description" content="Bill Hayes is a product development leader: project management, UX and strategy for agencies and the brands they serve.">
-<meta property="og:title" content="Bill Hayes builds products.">
-<meta property="og:description" content="Product development leader — project management, UX and strategy for agencies and the brands they serve.">
+<link rel="canonical" href="https://bhbp.github.io/">
+<meta property="og:title" content="Bill Hayes Builds Products.">
+<meta property="og:description" content="Bill Hayes is a product development leader: project management, UX and strategy for agencies and the brands they serve.">
+<meta property="og:url" content="https://bhbp.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="og-image.png">
+<meta property="og:image" content="https://bhbp.github.io/og-image.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -68,7 +71,7 @@ a:hover{color:var(--ocean-800)}</style></helmet>
 <p data-reveal="" style="font-family:var(--font-body);font-size:clamp(17px,min(1.4vw,2.5vh),21px);line-height:1.6;color:var(--text-body);margin:clamp(14px,3vh,24px) 0 0;max-width:600px;text-wrap:pretty">Filling the gaps between Engineers, Designers, Operations, and Marketing to turn fuzzy briefs into shipped products that serve Users while moving the Brand forward.</p>
 <p data-reveal="" style="font-family:var(--font-body);font-size:clamp(16px,1.2vw,18px);line-height:1.6;color:var(--text-muted);margin:14px 0 0;max-width:600px;text-wrap:pretty">I'm based in Chicago but excel while working remotely. PMP-certified since 2012. Scrum-certified four times over. I'm strategic and data-driven but still thrive on the details found in Lighthouse reviews and bug reports.</p>
 <div data-reveal="" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(20px,4vh,34px)">
-<x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="accent" size="lg" icon-left="linkedin" href="https://www.linkedin.com/in/william-hayes-pmp/" hint-size="150px,56px">LinkedIn</x-import>
+<x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="accent" size="lg" icon-left="linkedin" href="https://www.linkedin.com/in/william-hayes-pmp/" on-click="{{ openLinkedIn }}" hint-size="150px,56px">LinkedIn</x-import>
 <x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="secondary" size="lg" icon-left="download" on-click="{{ dlCanvas }}" hint-size="150px,56px">Opportunity Canvas</x-import>
 </div>
 </div>
@@ -941,6 +944,8 @@ class Component extends DCLogic {
   tertRGB() { return this.isOrange() ? [255,160,64] : [245,176,195]; }
   applyTertiary() { document.documentElement.dataset.tertiary = this.isOrange() ? "orange" : "pink"; if (this.flowCols) this.flowCols[3] = this.tertRGB(); }
   componentDidMount() {
+    this.onBareHash = (e) => { const a = e.target.closest && e.target.closest('a[href="#"]'); if (a) e.preventDefault(); };
+    document.addEventListener("click", this.onBareHash);
     this.onShareOut = (e) => { if (this.state.shareOpen && !(e.target.closest && e.target.closest("[data-share]"))) this.setState({ shareOpen: false }); };
     this.onShareKey = (e) => { if (e.key === "Escape" && this.state.shareOpen) this.setState({ shareOpen: false }); };
     document.addEventListener("pointerdown", this.onShareOut, true); document.addEventListener("keydown", this.onShareKey);
@@ -949,8 +954,8 @@ class Component extends DCLogic {
     const el = this.scRef.current; if (!el) return;
     this.reduce = !(this.props.revealMotion ?? true) || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let saved = 0; try { saved = parseInt(localStorage.getItem("bhbp-gallery-room"), 10) || 0; } catch (e) {}
-    const fromHash = () => { let h = (location.hash || "").replace(/^#\/?/, ""); if (h === "acu-online-banking") h = "online-banking"; return h ? this.slugs().indexOf(h) : 0; };
-    const hk = location.hash ? fromHash() : -1; if (hk >= 0) saved = hk;
+    const fromHash = () => this.roomFromURL();
+    const hk = (this.pathMode() || location.hash) ? fromHash() : -1; if (hk >= 0) saved = hk;
     this.onHash = () => { const k = fromHash(); if (k >= 0 && k !== this.state.i) this.go(k); };
     window.addEventListener("hashchange", this.onHash); window.addEventListener("popstate", this.onHash);
     saved = Math.max(0, Math.min(this.rooms.length - 1, saved));
@@ -1094,6 +1099,7 @@ class Component extends DCLogic {
     c.setAttribute("aria-pressed", on ? "true" : "false");
   }
   componentWillUnmount() {
+    document.removeEventListener("click", this.onBareHash);
     document.removeEventListener("pointerdown", this.onShareOut, true); document.removeEventListener("keydown", this.onShareKey);
     clearInterval(this.editPoll); window.removeEventListener("hashchange", this.onHash); window.removeEventListener("popstate", this.onHash);
     cancelAnimationFrame(this.flowRaf);
@@ -1149,6 +1155,13 @@ class Component extends DCLogic {
       s.appendChild(d);
     });
   }
+  pathMode() { return typeof window !== "undefined" && !!window.BHBP_PATHS; }
+  rootPath() { try { return new URL(document.baseURI).pathname.replace(/[^/]*$/, ""); } catch (e) { return "/"; } }
+  roomFromURL() {
+    if (this.pathMode()) { const r = this.rootPath(); let p = location.pathname; if (p.indexOf(r) === 0) p = p.slice(r.length); const seg = p.split("/")[0]; return seg && seg !== "index.html" ? this.slugs().indexOf(seg) : 0; }
+    const h = (location.hash || "").replace(/^#\/?/, ""); return h ? this.slugs().indexOf(h) : 0;
+  }
+  roomURL(i) { if (this.pathMode()) return this.rootPath() + (i === 0 ? "" : this.slugs()[i] + "/"); return i === 0 ? location.pathname + location.search : "#" + this.slugs()[i]; }
   slugs() { return this.rooms.map((n) => n.toLowerCase().replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")); }
   isMobile() { return this.state.vw < 760; }
   isCompact() { return this.state.vw < 1024; }
@@ -1805,7 +1818,7 @@ class Component extends DCLogic {
     if (back === null) this.fromRange = null;
     this.setState({ i, back });
     try { localStorage.setItem("bhbp-gallery-room", String(i)); } catch (e) {}
-    try { const s = this.slugs()[i]; const want = i === 0 ? location.pathname + location.search : "#" + s; if ((location.hash || "") !== (i === 0 ? "" : "#" + s)) history[instant ? "replaceState" : "pushState"]({ room: i }, "", want); } catch (e) {}
+    try { const s = this.slugs()[i]; const pm = this.pathMode(); const want = this.roomURL(i); if ((pm ? location.pathname : (location.hash || "")) !== (pm ? want : (i === 0 ? "" : "#" + s))) history[instant ? "replaceState" : "pushState"]({ room: i }, "", want); } catch (e) {}
     try { document.title = (i === 0 ? "" : this.rooms[i] + " — ") + "Bill Hayes Builds Products"; } catch (e) {}
     this.reveal(i, instant); this.paintTicks(i); this.animStats(i, instant);
   }
@@ -1862,6 +1875,7 @@ class Component extends DCLogic {
       ...this.shareVals(),
       flowBg: this.flowEl,
       dlCanvas: () => { const a = document.createElement("a"); a.href = "assets/William_Hayes_Opportunity_Canvas.pdf"; a.download = "William_Hayes_Opportunity_Canvas.pdf"; document.body.appendChild(a); a.click(); a.remove(); },
+      openLinkedIn: (e) => { if (e && e.preventDefault) e.preventDefault(); window.open("https://www.linkedin.com/in/william-hayes-pmp/", "_blank", "noopener"); },
       dlResume: () => { const a = document.createElement("a"); a.href = "assets/William_Hayes_Resume.pdf"; a.download = "William_Hayes_Resume.pdf"; document.body.appendChild(a); a.click(); a.remove(); },
       scRef: this.scRef,
       blendRef: this.blendRef,
