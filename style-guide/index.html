@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>(function(){var seg=location.pathname.split("/")[1],root="/";if(seg&&/\.github\.io$/.test(location.hostname)){try{var x=new XMLHttpRequest();x.open("HEAD","/"+seg+"/support.js",false);x.send();if(x.status===200)root="/"+seg+"/";}catch(e){}}document.write('<base href="'+root+'">');})();</script>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><title>Style Guide · Bill Hayes Builds Products</title><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="bhbp/styles.css"><script src="bhbp/ds-bundle.js"></script><style>
+html:root{--blush-50:#FFF6EC;--blush-100:#FFE9D1;--blush-200:#FFD2A6;--blush-300:#FFA040;--blush-400:#FF9226;--blush-500:#F27A0F;--blush-600:#C9620A;--blush-700:#9A4807;--gradient-aurora:radial-gradient(60% 70% at 12% 18%,rgba(42,152,180,.34) 0%,rgba(42,152,180,0) 70%),radial-gradient(45% 55% at 88% 80%,rgba(47,198,140,.22) 0%,rgba(47,198,140,0) 70%),radial-gradient(40% 50% at 70% 10%,rgba(255,160,64,.2) 0%,rgba(255,160,64,0) 70%),#00142B}
+html:root circle[fill="#EE8EA9"]{fill:#FFA040}
+html,body{margin:0;background:#F5F8FA}a{color:var(--ocean-700)}a:hover{color:var(--ocean-800)}
+::selection{background:#FFD2A6;color:#001F40}
+[data-tline]{text-decoration:none;background-image:linear-gradient(90deg,var(--ocean-600),var(--lagoon-500) 55%,var(--fern-400)),linear-gradient(currentColor,currentColor);background-size:0% 2px,100% 1px;background-position:0 100%,0 100%;background-repeat:no-repeat;padding-bottom:3px;transition:background-size 560ms var(--ease-flow)}
+[data-tlink]:hover [data-tline],[data-tlink]:focus-visible [data-tline]{background-size:100% 2px,100% 1px}
+[data-tarrow]{position:relative;display:inline-block;flex:none;width:var(--aw);transition:width 360ms var(--ease-flow)}
+[data-tlink]:hover [data-tarrow],[data-tlink]:focus-visible [data-tarrow]{width:calc(var(--aw) + 8px)}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){[data-tline],[data-tarrow]{transition:none}html{scroll-behavior:auto}}
+@page{margin:12mm}
+@media print{html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#F5F8FA}[data-print-hide]{display:none!important}section{break-inside:avoid;page-break-inside:avoid}footer a{display:none}}
+</style></helmet>
+<div style="min-height:100vh;background:#F5F8FA;font-family:var(--font-body);color:var(--text-body)">
+
+<header data-screen-label="Style Guide hero" style="position:relative;overflow:hidden;background:var(--gradient-aurora);color:#FFFFFF;border-radius:0 0 48px 48px">
+<div aria-hidden="true" style="position:absolute;right:18%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.18) 40%,rgba(255,255,255,0))"></div>
+<div style="position:relative;max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+<div style="height:80px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+<a href="./" aria-label="Home" style="display:flex"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Logo" variant="lockup" theme="dark" tone="navy" size="{{ 36 }}" hint-size="160px,36px"></x-import></a>
+<div data-print-hide=""><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="inverse" size="md" icon-left="download" on-click="{{ printPage }}" hint-size="200px,44px">Download Style Guide</x-import></div>
+</div>
+<div style="padding:clamp(48px,9vw,112px) 0 clamp(48px,7vw,88px);max-width:760px">
+<div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--fern-300);display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;border-radius:50%;background:#FFA040"></span>BHBP Brand System</div>
+<h1 style="font-family:var(--font-display);font-weight:700;font-size:clamp(44px,7vw,88px);line-height:.98;letter-spacing:-0.045em;margin:18px 0 0;color:#FFFFFF;text-wrap:balance">Style Guide, <span style="background:linear-gradient(90deg,var(--lagoon-200),var(--lagoon-400) 50%,var(--fern-400));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">Built</span><span style="color:#FFA040">.</span></h1>
+<p style="font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:rgba(255,255,255,.8);margin:22px 0 0;max-width:560px;text-wrap:pretty">The marks, colors, type and moves behind Bill Hayes Builds Products — one reference for anyone designing with the brand.</p>
+</div>
+<nav data-print-hide="" aria-label="Sections" style="display:flex;flex-wrap:wrap;gap:8px;padding:0 0 clamp(36px,5vw,56px)">
+<a href="#logo" style="text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14px;color:#FFFFFF;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);transition:background 200ms" style-hover="background:rgba(255,255,255,.14)">Logo</a>
+<a href="#color" style="text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14px;color:#FFFFFF;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);transition:background 200ms" style-hover="background:rgba(255,255,255,.14)">Color</a>
+<a href="#type" style="text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14px;color:#FFFFFF;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);transition:background 200ms" style-hover="background:rgba(255,255,255,.14)">Type</a>
+<a href="#components" style="text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14px;color:#FFFFFF;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);transition:background 200ms" style-hover="background:rgba(255,255,255,.14)">Components</a>
+<a href="#shape" style="text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14px;color:#FFFFFF;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);transition:background 200ms" style-hover="background:rgba(255,255,255,.14)">Shape &amp; Motion</a>
+<a href="#voice" style="text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14px;color:#FFFFFF;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);transition:background 200ms" style-hover="background:rgba(255,255,255,.14)">Voice</a>
+</nav>
+</div>
+</header>
+
+<main style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+
+<section id="logo" data-screen-label="01 Logo" style="padding:clamp(64px,8vw,96px) 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,56px)">
+<div style="max-width:320px">
+<div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700)">Logo</div>
+<h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.4vw,40px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong);margin:12px 0 0">The Mark</h2>
+<p style="font-size:16px;line-height:1.6;margin:14px 0 0;text-wrap:pretty">A navy disc, a green crosshair and an orange build node at the center. The node stays orange on every version.</p>
+<ul style="margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--text-muted)"><li>Clear space · ½ mark height</li><li>Minimum size · 24px</li><li>Never redraw, recolor or stretch</li></ul>
+</div>
+<div style="grid-column:span 2;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px">
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:28px;display:flex;flex-direction:column;gap:20px;min-height:200px"><div style="flex:1;display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Logo" variant="mark" tone="color" size="{{ 96 }}" hint-size="96px,96px"></x-import></div><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)">Primary · light grounds</div></div>
+<div style="background:#00142B;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:20px;min-height:200px"><div style="flex:1;display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Logo" variant="mark" tone="navy" size="{{ 96 }}" hint-size="96px,96px"></x-import></div><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">Navy · dark grounds</div></div>
+<div style="background:var(--gradient-flow);border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:20px;min-height:200px"><div style="flex:1;display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Logo" variant="mark" tone="white" size="{{ 96 }}" hint-size="96px,96px"></x-import></div><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#FFFFFF">White · gradients &amp; photos</div></div>
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:inset 0 0 0 1px var(--ink-200);padding:28px;display:flex;flex-direction:column;gap:20px;min-height:200px"><div style="flex:1;display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Logo" variant="mark" tone="outline" size="{{ 96 }}" hint-size="96px,96px"></x-import></div><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)">Outline · line use</div></div>
+<div style="grid-column:1 / -1;background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-around;gap:32px"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Logo" variant="lockup" tone="color" size="{{ 52 }}" hint-size="230px,52px"></x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Logo" variant="stacked" tone="color" size="{{ 64 }}" hint-size="140px,120px"></x-import></div>
+</div>
+</section>
+
+<section id="color" data-screen-label="02 Color" style="padding:clamp(64px,8vw,96px) 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,56px)">
+<div style="max-width:320px">
+<div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700)">Color</div>
+<h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.4vw,40px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong);margin:12px 0 0">Blue Leads, Orange Sparks</h2>
+<p style="font-size:16px;line-height:1.6;margin:14px 0 0;text-wrap:pretty">Navy carries trust, teal connects, green signals growth. Orange is the warm accent — dots, periods and highlights, never buttons or big fills.</p>
+</div>
+<div style="grid-column:span 2;min-width:0;display:flex;flex-direction:column;gap:16px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px">
+<div style="height:190px;border-radius:28px;background:#003E7D;color:#FFFFFF;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px"><div style="font-family:var(--font-display);font-weight:700;font-size:18px">Ocean 700</div><div style="font-family:var(--font-mono);font-size:12px;opacity:.85">#003E7D · Primary</div></div>
+<div style="height:190px;border-radius:28px;background:#2A98B4;color:#00142B;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px"><div style="font-family:var(--font-display);font-weight:700;font-size:18px">Lagoon 500</div><div style="font-family:var(--font-mono);font-size:12px">#2A98B4 · Secondary</div></div>
+<div style="height:190px;border-radius:28px;background:#2FC68C;color:#00142B;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px"><div style="font-family:var(--font-display);font-weight:700;font-size:18px">Fern 400</div><div style="font-family:var(--font-mono);font-size:12px">#2FC68C · Growth</div></div>
+<div style="height:190px;border-radius:28px;background:#FFA040;color:#00142B;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px"><div style="font-family:var(--font-display);font-weight:700;font-size:18px">Orange 300</div><div style="font-family:var(--font-mono);font-size:12px">#FFA040 · Accent</div></div>
+</div>
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:24px;display:flex;flex-direction:column;gap:14px">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Ink neutrals</div>
+<div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px"><div style="height:48px;border-radius:10px;background:#F5F8FA;box-shadow:inset 0 0 0 1px var(--ink-200)"></div><div style="height:48px;border-radius:10px;background:#D6E0E7"></div><div style="height:48px;border-radius:10px;background:#B5C3CE"></div><div style="height:48px;border-radius:10px;background:#64778A"></div><div style="height:48px;border-radius:10px;background:#2F4152"></div><div style="height:48px;border-radius:10px;background:#0E1A26"></div><div style="height:48px;border-radius:10px;background:#00142B"></div></div>
+<div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted)"><span>50</span><span>200</span><span>300</span><span>500</span><span>700</span><span>900</span><span>Ocean 950</span></div>
+</div>
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:24px;display:flex;flex-direction:column;gap:14px">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Ordered card sequence</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr));gap:10px">
+<div style="border-radius:20px;background:#003E7D;color:#FFFFFF;padding:16px;font-family:var(--font-ui);font-weight:600;font-size:14px">1 · Ocean 700</div>
+<div style="border-radius:20px;background:#2A98B4;color:#00142B;padding:16px;font-family:var(--font-ui);font-weight:600;font-size:14px">2 · Lagoon 500</div>
+<div style="border-radius:20px;background:#2FC68C;color:#00142B;padding:16px;font-family:var(--font-ui);font-weight:600;font-size:14px">3 · Fern 400</div>
+<div style="border-radius:20px;background:#FFA040;color:#00142B;padding:16px;font-family:var(--font-ui);font-weight:600;font-size:14px">4 · Orange 300</div>
+</div>
+<div style="font-size:14px;line-height:1.5;color:var(--text-muted)">Three cards skip Fern. Text on teal, green and orange is Ocean 950.</div>
+</div>
+</div>
+</section>
+
+<section id="type" data-screen-label="03 Type" style="padding:clamp(64px,8vw,96px) 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,56px)">
+<div style="max-width:320px">
+<div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700)">Type</div>
+<h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.4vw,40px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong);margin:12px 0 0">Three Voices</h2>
+<p style="font-size:16px;line-height:1.6;margin:14px 0 0;text-wrap:pretty">Geometric display, a warm reading serif and a technical mono. Headlines and buttons in Title Case; one gradient word per headline, then an orange period.</p>
+</div>
+<div style="grid-column:span 2;min-width:0;background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);overflow:hidden">
+<div style="padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px;align-items:end;box-shadow:inset 0 -1px 0 var(--ink-200)">
+<div style="font-family:var(--font-display);font-weight:700;font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-0.045em;color:var(--text-strong)">Builds <span style="background:linear-gradient(90deg,var(--ocean-600),var(--lagoon-500) 55%,var(--fern-500));-webkit-background-clip:text;background-clip:text;color:transparent">Products</span><span style="color:#FFA040">.</span></div>
+<div style="display:flex;flex-direction:column;gap:4px;font-family:var(--font-mono);font-size:12px;color:var(--text-muted)"><span style="color:var(--text-strong);font-family:var(--font-ui);font-weight:600;font-size:15px">Sora · Display &amp; UI</span><span>700 headlines · 600 buttons, nav, labels</span><span>72 / 56 / 44 / 34 / 26 / 20</span></div>
+</div>
+<div style="padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px;align-items:end;box-shadow:inset 0 -1px 0 var(--ink-200)">
+<p style="margin:0;font-family:var(--font-body);font-size:19px;line-height:1.6;color:var(--text-body)">Filling the gaps between engineers, designers, operations and marketing — <i>so fuzzy briefs become shipped products.</i></p>
+<div style="display:flex;flex-direction:column;gap:4px;font-family:var(--font-mono);font-size:12px;color:var(--text-muted)"><span style="color:var(--text-strong);font-family:var(--font-ui);font-weight:600;font-size:15px">Source Serif 4 · Body</span><span>400 · italic for asides · 1.6 leading</span><span>18 / 16 / 14</span></div>
+</div>
+<div style="padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px;align-items:end">
+<div style="font-family:var(--font-mono);font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700);display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;border-radius:50%;background:#FFA040"></span>Case Study 03 · 2026</div>
+<div style="display:flex;flex-direction:column;gap:4px;font-family:var(--font-mono);font-size:12px;color:var(--text-muted)"><span style="color:var(--text-strong);font-family:var(--font-ui);font-weight:600;font-size:15px">JetBrains Mono · Meta</span><span>Eyebrows, stats labels, dates</span><span>Uppercase · +0.16em</span></div>
+</div>
+</div>
+</section>
+
+<section id="components" data-screen-label="04 Components" style="padding:clamp(64px,8vw,96px) 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,56px)">
+<div style="max-width:320px">
+<div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700)">Components</div>
+<h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.4vw,40px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong);margin:12px 0 0">Hover Says Go</h2>
+<p style="font-size:16px;line-height:1.6;margin:14px 0 0;text-wrap:pretty">Accent buttons sweep in the flow gradient and stretch their arrow. Secondary buttons trace a teal outline. Links draw a gradient underline. Hover over each one to see it.</p>
+</div>
+<div style="grid-column:span 2;min-width:0;display:flex;flex-direction:column;gap:16px">
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:28px;display:flex;flex-direction:column;gap:20px">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Buttons</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="accent" size="lg" icon-right="arrow-right" hint-size="200px,56px">Walk the Gallery</x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="secondary" size="lg" icon-left="download" hint-size="200px,56px">Download Resume</x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="primary" size="lg" hint-size="140px,56px">Let's Talk</x-import></div>
+</div>
+<div style="background:#00142B;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:20px">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)">On dark</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Button" variant="inverse" size="md" icon-right="arrow-up-right" hint-size="180px,44px">See the Work</x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Badge" tone="success" dot="{{ true }}" hint-size="90px,24px">Shipped</x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Badge" tone="orange" hint-size="90px,24px">Featured</x-import></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px">
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:28px;display:flex;flex-direction:column;gap:16px">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Badges &amp; tags</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Badge" tone="brand" hint-size="90px,24px">Case Study</x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Badge" tone="info" hint-size="70px,24px">2026</x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Badge" tone="orange" dot="{{ true }}" hint-size="90px,24px">Featured</x-import><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Tag" hint-size="80px,30px">eCommerce</x-import></div>
+</div>
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:28px;display:flex;flex-direction:column;gap:16px">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Text link</div>
+<a href="#components" data-tlink="" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:17px;color:var(--ocean-700);align-self:flex-start"><span data-tline="">Read the Case Study</span><span data-tarrow="" style="--aw:18px;height:12px"><span style="position:absolute;left:0;right:1px;top:5px;height:2px;border-radius:2px;background:currentColor"></span><svg width="8" height="12" viewBox="0 0 8 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;top:0"><path d="M1.5 1 6.5 6l-5 5"></path></svg></span></a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="shape" data-screen-label="05 Shape and Motion" style="padding:clamp(64px,8vw,96px) 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,56px)">
+<div style="max-width:320px">
+<div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700)">Shape &amp; Motion</div>
+<h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.4vw,40px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong);margin:12px 0 0">Soft Edges, Smooth Moves</h2>
+<p style="font-size:16px;line-height:1.6;margin:14px 0 0;text-wrap:pretty">Nothing sharp, nothing bouncy. Shadows are navy-tinted and diffuse; motion eases out on one curve.</p>
+</div>
+<div style="grid-column:span 2;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px">
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:28px;display:flex;flex-direction:column;gap:18px">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Radii</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end">
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:52px;height:52px;border-radius:10px;background:var(--lagoon-50);box-shadow:inset 0 0 0 1.5px var(--lagoon-500)"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted)">10 btn</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:52px;height:52px;border-radius:14px;background:var(--lagoon-50);box-shadow:inset 0 0 0 1.5px var(--lagoon-500)"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted)">14 input</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:52px;height:52px;border-radius:20px;background:var(--lagoon-50);box-shadow:inset 0 0 0 1.5px var(--lagoon-500)"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted)">20 tile</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:52px;height:52px;border-radius:28px 28px 28px 28px;background:var(--lagoon-50);box-shadow:inset 0 0 0 1.5px var(--lagoon-500)"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted)">28 card</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:72px;height:32px;border-radius:999px;background:var(--lagoon-50);box-shadow:inset 0 0 0 1.5px var(--lagoon-500)"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted)">pill tag</span></div>
+</div>
+</div>
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:28px;display:flex;flex-direction:column;gap:18px">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Motion</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-family:var(--font-mono);font-size:12px;color:var(--text-body)">
+<div style="display:flex;justify-content:space-between;gap:12px"><span>Ease flow</span><span style="color:var(--text-muted)">cubic-bezier(.22,1,.36,1)</span></div>
+<div style="display:flex;justify-content:space-between;gap:12px"><span>Base · slow</span><span style="color:var(--text-muted)">200ms · 360ms</span></div>
+<div style="display:flex;justify-content:space-between;gap:12px"><span>Outline trace · sweep</span><span style="color:var(--text-muted)">640ms · 720ms</span></div>
+<div style="display:flex;justify-content:space-between;gap:12px"><span>Card hover</span><span style="color:var(--text-muted)">lift −4px</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="voice" data-screen-label="06 Voice" style="padding:clamp(64px,8vw,96px) 0 clamp(72px,9vw,112px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,56px)">
+<div style="max-width:320px">
+<div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon-700)">Voice</div>
+<h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.4vw,40px);line-height:1.05;letter-spacing:-0.035em;color:var(--text-strong);margin:12px 0 0">Proof Over Adjectives</h2>
+<p style="font-size:16px;line-height:1.6;margin:14px 0 0;text-wrap:pretty">First person, confident and specific — a senior PM talking to a peer, not a résumé.</p>
+</div>
+<div style="grid-column:span 2;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px">
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:28px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:700;font-size:15px;color:var(--fern-700)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="check" size="{{ 18 }}" hint-size="18px,18px"></x-import>Do</div>
+<ul style="margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.5"><li>Lead with the number, then the impact.</li><li>Short declaratives, one idea each.</li><li>Verb-first CTAs: "See the Work".</li></ul>
+</div>
+<div style="background:#FFFFFF;border-radius:28px;box-shadow:var(--shadow-md);padding:28px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:700;font-size:15px;color:var(--blush-700)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="x" size="{{ 18 }}" hint-size="18px,18px"></x-import>Don't</div>
+<ul style="margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.5"><li>"Passionate", "rockstar", "synergy".</li><li>Emoji, anywhere.</li><li>More than one gradient word per headline.</li></ul>
+</div>
+</div>
+</section>
+</main>
+
+<footer style="background:#00142B;color:rgba(255,255,255,.72)">
+<div style="max-width:1200px;margin:0 auto;padding:32px clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em">
+<span>Bill Hayes Builds Products · Style Guide</span>
+<a href="./" style="color:var(--lagoon-200);text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14px;letter-spacing:0">Back to Home</a>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      printPage: () => {
+        const t = document.title;
+        document.title = "Bill Hayes Style Guide";
+        const restore = () => { document.title = t; window.removeEventListener("afterprint", restore); };
+        window.addEventListener("afterprint", restore);
+        window.print();
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
