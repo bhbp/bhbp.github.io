@@ -304,7 +304,7 @@ __html: '<svg width="100%" height="100%" viewBox="0 0 120 120" fill="none" xmlns
 });
 if (variant === "mark") return /*#__PURE__*/React.createElement("span", {
 role: "img",
-"aria-label": "Bill Hayes Build Products",
+"aria-label": "Bill Hayes Builds Products",
 style: {
 display: "inline-flex",
 ...style
@@ -315,7 +315,7 @@ const nameColor = dark ? "var(--text-inverse)" : "var(--text-strong)";
 const subColor = dark ? "var(--lagoon-300)" : "var(--text-accent)";
 if (variant === "stacked") return /*#__PURE__*/React.createElement("span", {
 role: "img",
-"aria-label": "Bill Hayes Build Products",
+"aria-label": "Bill Hayes Builds Products",
 style: {
 display: "inline-flex",
 flexDirection: "column",
@@ -348,10 +348,10 @@ letterSpacing: "0.18em",
 textTransform: "uppercase",
 color: subColor
 }
-}, "Build Products")));
+}, "Builds Products")));
 return /*#__PURE__*/React.createElement("span", {
 role: "img",
-"aria-label": "Bill Hayes Build Products",
+"aria-label": "Bill Hayes Builds Products",
 style: {
 display: "inline-flex",
 alignItems: "center",
@@ -383,7 +383,7 @@ textTransform: "uppercase",
 color: subColor,
 lineHeight: 1.3
 }
-}, "Build Products")));
+}, "Builds Products")));
 }
 Object.assign(__ds_scope, { Logo });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/brand/Logo.jsx", error: String((e && e.message) || e) }); }
@@ -2668,7 +2668,7 @@ justifyContent: "space-between",
 fontFamily: "var(--font-mono)",
 fontSize: 12
 }
-}, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Bill Hayes Build Products"), /*#__PURE__*/React.createElement("span", null, "BHBP")));
+}, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Bill Hayes Builds Products"), /*#__PURE__*/React.createElement("span", null, "BHBP")));
 }
 function CTABand({
 go
