@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bhbp.github.io/sitemap.xml
+Sitemap: https://bhbp.io/sitemap.xml
