@@ -56,8 +56,8 @@ a:hover{color:var(--ocean-800)}
 <sc-if value="{{ shareOpen }}" hint-placeholder-val="{{ false }}"><div role="menu" aria-label="Share this page" style="position:absolute;top:calc(100% + 10px);right:0;width:236px;padding:8px;border-radius:20px;background:var(--surface-card);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;gap:2px;z-index:30">
 <div style="padding:8px 12px 6px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-subtle)">Share this page</div>
 <button type="button" role="menuitem" onClick="{{ shareCopy }}" style="display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border:0;border-radius:12px;background:transparent;cursor:pointer;font-family:var(--font-ui);font-weight:600;font-size:14.5px;color:var(--text-strong);text-align:left" style-hover="background:var(--surface-page)"><span style="display:flex;color:var(--ocean-700)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="{{ copyIcon }}" size="{{ 18 }}" hint-size="18px,18px"></x-import></span>{{ copyLabel }}</button>
-<a role="menuitem" href="{{ shareMail }}" onClick="{{ shareClose }}" style="display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:12px;text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14.5px;color:var(--text-strong)" style-hover="background:var(--surface-page)"><span style="display:flex;color:var(--ocean-700)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="mail" size="{{ 18 }}" hint-size="18px,18px"></x-import></span>Email</a>
-<a role="menuitem" href="{{ shareLinkedIn }}" target="_blank" rel="noopener" onClick="{{ shareClose }}" style="display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:12px;text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14.5px;color:var(--text-strong)" style-hover="background:var(--surface-page)"><span style="display:flex;color:var(--ocean-700)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="linkedin" size="{{ 18 }}" hint-size="18px,18px"></x-import></span>LinkedIn</a>
+<a role="menuitem" href="{{ shareMail }}" onClick="{{ shareMailClick }}" onClick="{{ shareClose }}" style="display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:12px;text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14.5px;color:var(--text-strong)" style-hover="background:var(--surface-page)"><span style="display:flex;color:var(--ocean-700)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="mail" size="{{ 18 }}" hint-size="18px,18px"></x-import></span>Email</a>
+<a role="menuitem" href="{{ shareLinkedIn }}" onClick="{{ shareLinkedInClick }}" target="_blank" rel="noopener" onClick="{{ shareClose }}" style="display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:12px;text-decoration:none;font-family:var(--font-ui);font-weight:600;font-size:14.5px;color:var(--text-strong)" style-hover="background:var(--surface-page)"><span style="display:flex;color:var(--ocean-700)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="linkedin" size="{{ 18 }}" hint-size="18px,18px"></x-import></span>LinkedIn</a>
 <button type="button" role="menuitem" onClick="{{ shareSlack }}" style="display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border:0;border-radius:12px;background:transparent;cursor:pointer;font-family:var(--font-ui);font-weight:600;font-size:14.5px;color:var(--text-strong);text-align:left" style-hover="background:var(--surface-page)"><span style="display:flex;color:var(--ocean-700)"><x-import component-from-global-scope="BHBPDesignSystem_d81dd5.Icon" name="{{ slackIcon }}" size="{{ 18 }}" hint-size="18px,18px"></x-import></span>{{ slackLabel }}</button>
 </div></sc-if>
 </div>
@@ -816,6 +816,7 @@ a:hover{color:var(--ocean-800)}
 <script type="text/x-dc" data-dc-script data-props="{&quot;arrangeNav&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Drag-to-group nav (hidden on github.io)&quot;},&quot;arrangeBrands&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Arrange brand logos (drag to reorder)&quot;}}">
 class Component extends DCLogic {
   form = {};
+  track(name, extra) { try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: "cta_click", cta_name: name, cta_location: (this.rooms || [])[this.state.i] || "Home", page_location: location.href }, extra || {})); } catch (e) {} }
   FORM_URL = "https://script.google.com/macros/s/AKfycbwg-UNCUVY1f0p-l9XUTUrdx8RJg67eTxCfXDknDjfLvRyA36sQc5lmtzQ1FQ7SkcXJ/exec"; TS_KEY = "0x4AAAAAAF0JjaT5YT9qWTrE";
   formLive() { return !!(this.FORM_URL && this.TS_KEY); }
   loadTS() { if (window.turnstile) return Promise.resolve(); if (!this._tsp) this._tsp = new Promise((res, rej) => { const s = document.createElement("script"); s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"; s.async = true; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); return this._tsp; }
@@ -856,18 +857,19 @@ class Component extends DCLogic {
     return {
       shareOpen: open, shareExp: open ? "true" : "false",
       shareSize: this.isMobile() ? "44px" : "36px",
-      shareToggle: (e) => { if (e) e.stopPropagation(); this.setState({ shareOpen: !open, shareCopied: false, slackCopied: false }); },
+      shareToggle: (e) => { if (e) e.stopPropagation(); if (!open) this.track("share_open"); this.setState({ shareOpen: !open, shareCopied: false, slackCopied: false }); },
       shareClose: () => setTimeout(() => this.setState({ shareOpen: false }), 0),
-      shareCopy: () => {
+      shareCopy: () => { this.track("share", { share_method: "copy_link" });
         const done = () => { this.setState({ shareCopied: true }); clearTimeout(this.shT); this.shT = setTimeout(() => this.setState({ shareOpen: false, shareCopied: false }), 1400); };
         try { navigator.clipboard.writeText(url).then(done, () => { this.copyFallback(url); done(); }); } catch (e) { this.copyFallback(url); done(); }
       },
       copyIcon: copied ? "check" : "link", copyLabel: copied ? "Link Copied" : "Copy Link",
+      shareMailClick: () => this.track("share", { share_method: "email" }), shareLinkedInClick: () => this.track("share", { share_method: "linkedin" }),
       shareMail: "mailto:?subject=" + encodeURIComponent(title) + "&body=" + encodeURIComponent("Take a look at this: " + url),
       shareLinkedIn: "https://www.linkedin.com/sharing/share-offsite/?url=" + u,
       slackIcon: this.state.slackCopied ? "check" : "slack",
       slackLabel: this.state.slackCopied ? "Link Copied, Paste in Slack" : "Slack",
-      shareSlack: () => {
+      shareSlack: () => { this.track("share", { share_method: "slack" });
         try { navigator.clipboard.writeText(url).catch(() => this.copyFallback(url)); } catch (e) { this.copyFallback(url); }
         window.open("https://app.slack.com/client", "_blank", "noopener");
         this.setState({ slackCopied: true }); clearTimeout(this.shT);
@@ -1883,10 +1885,10 @@ class Component extends DCLogic {
       ...this.indVals(),
       ...this.shareVals(),
       flowBg: this.flowEl,
-      dlCanvas: () => { const a = document.createElement("a"); a.href = "assets/William_Hayes_Opportunity_Canvas.pdf"; a.download = "William_Hayes_Opportunity_Canvas.pdf"; document.body.appendChild(a); a.click(); a.remove(); },
-      openLinkedIn: (e) => { if (e && e.preventDefault) e.preventDefault(); window.open("https://www.linkedin.com/in/william-hayes-pmp/", "_blank", "noopener"); },
+      dlCanvas: () => { this.track("canvas_download"); const a = document.createElement("a"); a.href = "assets/William_Hayes_Opportunity_Canvas.pdf"; a.download = "William_Hayes_Opportunity_Canvas.pdf"; document.body.appendChild(a); a.click(); a.remove(); },
+      openLinkedIn: (e) => { this.track("linkedin_click"); if (e && e.preventDefault) e.preventDefault(); window.open("https://www.linkedin.com/in/william-hayes-pmp/", "_blank", "noopener"); },
       skipToContent: (e) => { if (e && e.preventDefault) e.preventDefault(); const el = this.scRef.current; if (!el) return; const r = el.querySelector('[data-room="' + this.state.i + '"]'); const f = r && r.querySelector("h1,h2"); if (f) { f.setAttribute("tabindex", "-1"); f.focus(); } else el.focus(); },
-      dlResume: () => { const a = document.createElement("a"); a.href = "assets/William_Hayes_Resume.pdf"; a.download = "William_Hayes_Resume.pdf"; document.body.appendChild(a); a.click(); a.remove(); },
+      dlResume: () => { this.track("resume_download"); const a = document.createElement("a"); a.href = "assets/William_Hayes_Resume.pdf"; a.download = "William_Hayes_Resume.pdf"; document.body.appendChild(a); a.click(); a.remove(); },
       scRef: this.scRef,
       blendRef: this.blendRef,
       devRef: this.devRef,
@@ -1924,7 +1926,7 @@ class Component extends DCLogic {
       hbMid: this.state.menu ? { t: "scaleX(.2)", h: "2px", m: "-1px", o: 0 } : { t: "none", h: "2px", m: "-1px", o: 1 },
       hbBot: this.state.menu ? { t: "translateY(6px) scale(.6)", h: "4px", m: "-2px", o: 0 } : { t: "translateY(6px)", h: "4px", m: "-2px", o: 1 },
       menuToggle: () => this.setState({ menu: !this.state.menu, menuSec: {} }),
-      menuContact: () => this.setState({ menu: false, dialogOpen: true }),
+      menuContact: () => { this.track("connect_click", { cta_source: "menu" }); this.setState({ menu: false, dialogOpen: true }); },
       menuGroups: (() => {
         const room = (k) => ({ pad: this.isL3(k) ? "22px" : "8px", n: this.menuLabel(k), no: String(k + 1).padStart(2, "0"), meta: "", color: k === i ? "var(--ocean-700)" : "var(--text-body)", weight: k === i ? 700 : 500, go: () => { this.setState({ menu: false }); this.go(k); } });
         const groups = [["about", "Overview", [1, 2, 3].map(room)], ["projects", "Experience", [4, 5, 6, 7, 8, 9, 10, 11, 12].map(room)], ["skills", "Methodologies", [13, 14, 15, 16, 17, 18].map(room)], ["connect", "References", [19, 20, 21].map(room)]];
@@ -1943,13 +1945,13 @@ class Component extends DCLogic {
       start: () => this.go(1), home: () => this.go(0),
       markSize: Math.round(Math.min(260, Math.max(160, this.state.vw * 0.17))),
       dialogOpen: this.state.dialogOpen,
-      openContact: () => this.setState({ dialogOpen: true }),
+      openContact: () => { this.track("connect_click"); this.setState({ dialogOpen: true }); },
       ...Object.fromEntries([14,15,16,17,18].map((room, k) => ["sk" + k, { open: this.state.skill === k, exp: this.state.skill === k ? "true" : "false", rot: this.state.skill === k ? "rotate(180deg)" : "none", toggle: () => this.setState({ skill: this.state.skill === k ? null : k }), go: (e) => { if (e) { e.preventDefault(); e.stopPropagation(); } this.fromRange = room; this.go(room); } }])),
       ...Object.fromEntries([14,15,16,17,18].map((room) => { const m = this.isMobile(), g = m && (this.state.capTab || {})[room] === "g", set = (v) => () => this.setState((s) => ({ capTab: Object.assign({}, s.capTab, { [room]: v }) })); return ["ct" + room, { bar: m ? "flex" : "none", c: g ? "none" : "block", g: m && !g ? "none" : "flex", cBg: g ? "transparent" : "var(--ocean-700)", cFg: g ? "var(--text-body)" : "#FFFFFF", gBg: g ? "var(--ocean-700)" : "transparent", gFg: g ? "#FFFFFF" : "var(--text-body)", cp: g ? "false" : "true", gp: g ? "true" : "false", toC: set("c"), toG: set("g") }]; })),
       ...Object.fromEntries([14,15,16,17,18].flatMap((room) => { const on = this.state.back === room, m = this.isCompact(); return [["tkb" + room, on && !m ? "inline-flex" : "none"], ["tkm" + room, on && m ? "flex" : "none"]]; })),
       ...Object.fromEntries(Array.from({ length: 7 }, (_, k) => ["jb" + k, { open: this.state.job === k, exp: this.state.job === k ? "true" : "false", rot: this.state.job === k ? "rotate(180deg)" : "none", toggle: () => this.setState({ job: this.state.job === k ? null : k }) }])),
       reviewOpen: this.state.reviewOpen,
-      openReview: () => { this.rform = {}; this.setState({ reviewOpen: true, rEmailErr: "" }); },
+      openReview: () => { this.track("review_click"); this.rform = {}; this.setState({ reviewOpen: true, rEmailErr: "" }); },
       closeReview: () => this.setState({ reviewOpen: false }),
       rEmailErr: this.state.rEmailErr,
       setRName: (e) => { this.rform.name = e.target.value; },
