@@ -280,7 +280,7 @@ function Logo({
   });
   if (variant === "mark") return /*#__PURE__*/React.createElement("span", {
     role: "img",
-    "aria-label": "Bill Hayes Build Products",
+    "aria-label": "Bill Hayes Builds Products",
     style: {
       display: "inline-flex",
       ...style
@@ -291,7 +291,7 @@ function Logo({
   const subColor = dark ? "var(--lagoon-300)" : "var(--text-accent)";
   if (variant === "stacked") return /*#__PURE__*/React.createElement("span", {
     role: "img",
-    "aria-label": "Bill Hayes Build Products",
+    "aria-label": "Bill Hayes Builds Products",
     style: {
       display: "inline-flex",
       flexDirection: "column",
@@ -327,7 +327,7 @@ function Logo({
   }, "Build Products")));
   return /*#__PURE__*/React.createElement("span", {
     role: "img",
-    "aria-label": "Bill Hayes Build Products",
+    "aria-label": "Bill Hayes Builds Products",
     style: {
       display: "inline-flex",
       alignItems: "center",
@@ -3081,7 +3081,7 @@ function Footer({
       fontFamily: "var(--font-mono)",
       fontSize: 12
     }
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Bill Hayes Build Products"), /*#__PURE__*/React.createElement("span", null, "BHBP")));
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Bill Hayes Builds Products"), /*#__PURE__*/React.createElement("span", null, "BHBP")));
 }
 function CTABand({
   go
